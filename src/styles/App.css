@@ -6,6 +6,8 @@
 }
 
 :root {
+  --temp: grey;
+  --temp2: black;
   --background: #242629;
   --headline: #fffffe;
   --sub-headline: #94a1b2;

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../styles/Forms.css";
 
-export function Pagination({ setListPagination, listPagination }) {
+export function Pagination({ setListPagination, listPagination, totalCount }) {
   const [pageInput, setPageInput] = useState("1");
   const limitValues = [5, 10, 20, 40];
 
@@ -27,6 +27,15 @@ export function Pagination({ setListPagination, listPagination }) {
   function handleSubmit() {
     setListPagination(({ limit }) => ({ limit, p: Number(pageInput) }));
   }
+
+  const minArticleIndex = Math.max(
+    listPagination.limit * (listPagination.p - 1) + 1,
+    1
+  );
+  const maxArticleIndex = Math.min(
+    listPagination.limit * listPagination.p + 1,
+    totalCount
+  );
 
   return (
     <>
@@ -54,8 +63,13 @@ export function Pagination({ setListPagination, listPagination }) {
         <section className="page-section">
           <button
             type="button"
-            className="pagination-button"
-            onClick={() => incrementPage(-1)}
+            className={
+              "pagination-button " +
+              (listPagination.p > 1 ? "" : "button-disabled")
+            }
+            onClick={() => {
+              if (listPagination.p > 1) incrementPage(-1);
+            }}
           >
             Previous
           </button>
@@ -72,12 +86,24 @@ export function Pagination({ setListPagination, listPagination }) {
           ></input>
           <button
             type="button"
-            className="pagination-button"
-            onClick={() => incrementPage(1)}
+            className={
+              "pagination-button " +
+              (totalCount > maxArticleIndex ? "" : "button-disabled")
+            }
+            onClick={() => {
+              if (totalCount > maxArticleIndex) incrementPage(1);
+            }}
           >
             Next
           </button>
         </section>
+        <p className="pagination-recap">
+          {minArticleIndex <= totalCount
+            ? listPagination.p >= 1
+              ? `Seeing ${minArticleIndex} to ${maxArticleIndex} of ${totalCount} results`
+              : "You should be more positive :("
+            : "With great page comes great responsibility"}
+        </p>
       </form>
     </>
   );
