@@ -1,8 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export function ArticleSummary({ article }) {
+  const navigate = useNavigate();
+  function handleArticleClick(article_id) {
+    console.log("clicked!!");
+    navigate(`/article/${article_id}`);
+  }
+
   return (
-    <li className="article-summary">
+    <li
+      className="article-summary"
+      onClick={() => handleArticleClick(article.article_id)}
+    >
       <h3 className="title">{article.title}</h3>
       <img src={article.article_img_url} />
       <p>

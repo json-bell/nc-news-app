@@ -1,1 +1,3 @@
-export function Article() {}
+export function Article({ article }) {
+  console.log(article);
+}

@@ -22,7 +22,7 @@
 }
 
 .pagination-container {
-  border: white 1px solid;
+  border: var(--temp) 1px solid;
   border-radius: 1rem;
   display: inline-table;
   padding: 1rem;

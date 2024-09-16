@@ -1,0 +1,6 @@
+.nav-list {
+  border: 2px var(--temp) solid;
+  list-style-type: none;
+  display: flex;
+  border-radius: 0 1rem 0 1rem;
+}
