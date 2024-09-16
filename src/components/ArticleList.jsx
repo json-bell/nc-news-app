@@ -2,13 +2,10 @@ import { useEffect, useState } from "react";
 import { ArticleSummary } from "./ArticleSummary";
 import { apiClient } from "../client";
 import "../styles/ArticleList.css";
-import { Pagination } from "./Pagination";
 
-export function ArticleList() {
+export function ArticleList({ listPagination, setTotalCount }) {
   const [articles, setArticles] = useState([]);
-  const [totalCount, setTotalCount] = useState(0);
   const [isArticlesLoading, setIsArticlesLoading] = useState(true);
-  const [listPagination, setListPagination] = useState({ limit: 10, p: 1 });
 
   useEffect(() => {
     setIsArticlesLoading(true);
@@ -34,15 +31,14 @@ export function ArticleList() {
   return (
     <>
       <h2>Here's the articles MODIFY</h2>
-      <Pagination
-        setListPagination={setListPagination}
-        listPagination={listPagination}
-      />
       <ul className="article-list">
         {articles.map((article) => (
           <ArticleSummary key={article.article_id} article={article} />
         ))}
       </ul>
+      <div>
+        {articles.length === 0 ? <em>No articles to display</em> : null}
+      </div>
     </>
   );
 }

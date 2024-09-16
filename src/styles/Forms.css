@@ -1,6 +1,12 @@
 .pagination-button {
-  margin: 0 1rem;
+  margin: 0.5rem 1rem;
   padding: 1rem;
+  border: var(--temp) 1px solid;
+}
+
+.button-disabled {
+  background-color: color-mix(in srgb, var(--temp) 50%, var(--temp2) 50%);
+  color: var(--temp);
 }
 
 .pagination-page_num {
@@ -28,4 +34,8 @@
 
 .pagination-label {
   margin: 0 0 0.5rem 0;
+}
+
+.pagination-recap {
+  margin: 0;
 }
