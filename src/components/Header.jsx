@@ -1,7 +1,7 @@
 export function Header() {
   return (
     <>
-      <h1>nUsable</h1>
+      <h1>Newser Friendly</h1>
     </>
   );
 }
