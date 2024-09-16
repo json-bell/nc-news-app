@@ -1,0 +1,32 @@
+.article-list {
+  list-style-type: none;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.article-summary {
+  border-radius: 0 1rem 0 1rem;
+  background-color: var(--card-background);
+  color: var(--card-paragraph);
+  width: 300px;
+  margin: 1rem;
+  padding: 0.5rem;
+}
+.article-summary:hover {
+  box-shadow: 0 0 5px 5px var(--highlight);
+}
+
+.article-summary > .title {
+  color: var(--card-heading);
+}
+
+.article-summary img {
+  display: block;
+  width: 90%;
+  border: var(--icon-secondary) 3px solid;
+  border-radius: 0.4rem;
+  margin: 4%;
+}
