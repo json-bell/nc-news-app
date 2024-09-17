@@ -7,12 +7,12 @@ import { useContext, useEffect } from "react";
 import { NavContext } from "./contexts/NavContext";
 
 function App() {
-  const { setSkipNavInfo } = useContext(NavContext);
-  const navigate = useNavigate();
-  useEffect(() => {
-    console.log("Changed the Route");
-    setSkipNavInfo([{ id: "end-nav", contentName: "Content" }]);
-  }, [navigate]);
+  // const { setSkipNavInfo } = useContext(NavContext);
+  // const navigate = useNavigate();
+  // useEffect(() => {
+  //   console.log("App Nav");
+  //   setSkipNavInfo([{ id: "end-nav", contentName: "Content" }]);
+  // }, [navigate]);
 
   return (
     <>

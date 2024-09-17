@@ -83,10 +83,7 @@ export function Pagination({ setListPagination, listPagination, totalCount }) {
             onChange={handlePageUpdate}
             value={pageInput}
             onBlur={(event) => {
-              console.log("input:", pageInput, "and value:", listPagination.p);
-              console.log(Number(pageInput) !== listPagination.p);
               if (Number(pageInput) !== listPagination.p) {
-                console.log("submitting");
                 handleSubmit(event);
               }
             }}
