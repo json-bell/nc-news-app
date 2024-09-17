@@ -4,7 +4,6 @@ import { convertDateShort } from "../utils";
 export function ArticleSummary({ article }) {
   const navigate = useNavigate();
   function handleArticleClick(article_id) {
-    console.log("clicked!!");
     navigate(`/article/${article_id}`);
   }
 

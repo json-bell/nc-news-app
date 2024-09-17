@@ -19,4 +19,18 @@ export function convertDateShort(isoDate) {
   return formatter.format(dateObj);
 }
 
-export function includeSkipNavs(linkIds, setSkipNavInfo) {}
+export function includeSkipNavs(setSkipNavInfo, linkIds = ["end-nav"]) {
+  const skipableContent = [
+    { id: "end-nav", contentName: "Content" },
+    { id: "articles", contentName: "Articles" },
+    { id: "pagination", contentName: "Pagination" },
+  ];
+  const skipInfo = linkIds.map(
+    (goalId) =>
+      skipableContent.find(({ id }) => id === goalId) || {
+        id: "end-nav",
+        contentName: "End of Navigation",
+      }
+  );
+  setSkipNavInfo(skipInfo);
+}
