@@ -29,7 +29,7 @@ export function Comments({ articleNotFound }) {
 
   return (
     <>
-      <h3>
+      <h3 id="comments">
         {comments.length === 0
           ? "There are no comments yet... Be the first!"
           : "Here are the comments"}

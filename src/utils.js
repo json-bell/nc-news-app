@@ -24,6 +24,7 @@ export function includeSkipNavs(setSkipNavInfo, linkIds = ["end-nav"]) {
     { id: "end-nav", contentName: "Content" },
     { id: "articles", contentName: "Articles" },
     { id: "pagination", contentName: "Pagination" },
+    { id: "comments", contentName: "Comments" },
   ];
   const skipInfo = linkIds.map(
     (goalId) =>
