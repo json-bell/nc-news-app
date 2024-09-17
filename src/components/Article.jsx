@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { Link, useParams, useSearchParams } from "react-router-dom";
-import { apiClient } from "../client";
+import { Link, useParams } from "react-router-dom";
 import { convertDateLong } from "../utils";
 import "../styles/Article.css";
 import { ErrorMsg } from "./ErrorMsg";
+import { apiClient } from "../client";
 
-export function Article() {
+export function Article({ setArticleNotFound }) {
   const params = useParams();
   const article_id = Number(params.article_id);
 
@@ -19,11 +19,11 @@ export function Article() {
       .get(`/articles/${article_id}`)
       .then(({ data }) => {
         setArticle(data.article);
-        console.log(data);
         setIsArticleLoading(false);
+        setArticleNotFound(false);
       })
       .catch(({ response }) => {
-        console.log(response.data);
+        setArticleNotFound(true);
         setArticleError(response.data);
       });
   }, []);

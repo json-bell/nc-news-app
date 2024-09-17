@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { ArticleSummary } from "./ArticleSummary";
-import { apiClient } from "../client";
+import { apiClient } from "../client.jsx";
 import "../styles/ArticleList.css";
 
 export function ArticleList({ listPagination, setTotalCount }) {
@@ -22,7 +22,7 @@ export function ArticleList({ listPagination, setTotalCount }) {
   if (isArticlesLoading) {
     return (
       <>
-        <h2 style={{ color: "red" }}>Articles are loading...</h2>
+        <h2>Articles are loading...</h2>
       </>
     );
   }
