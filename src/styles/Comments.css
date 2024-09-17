@@ -17,9 +17,9 @@
   grid-template-areas:
     "author votes time"
     "body body body";
-  grid-template-columns: minmax(auto, 150px) minmax(100px, 150px) minmax(
+  grid-template-columns: minmax(100px, 170px) minmax(105px, 150px) minmax(
       150px,
-      2fr
+      1fr
     );
 }
 

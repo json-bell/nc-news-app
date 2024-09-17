@@ -13,6 +13,13 @@ export function Comments({ articleNotFound }) {
   const [comments, setComments] = useState([]);
   const [isCommentsLoading, setIsCommentsLoading] = useState(true);
 
+  function incrementVoteByCommentId(comment_id) {
+    return (inc_votes) => {
+      const payload = { inc_votes };
+      return apiClient.patch(`comments/${comment_id}`, payload);
+    };
+  }
+
   useEffect(() => {
     setIsCommentsLoading(true);
     apiClient.get(`/articles/${article_id}/comments`).then(({ data }) => {
@@ -42,7 +49,11 @@ export function Comments({ articleNotFound }) {
             <p className="comment-time">
               {convertDateLong(comment.created_at)}
             </p>
-            <Votes votes={comment.votes} />
+            <Votes
+              votes={comment.votes}
+              incrementVote={incrementVoteByCommentId(comment.comment_id)}
+              errorLocation={"below"}
+            />
             <p className="comment-body">{comment.body}</p>
           </li>
         ))}
