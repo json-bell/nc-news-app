@@ -3,6 +3,7 @@ import { Link, useParams, useSearchParams } from "react-router-dom";
 import { apiClient } from "../client";
 import { convertDateLong } from "../utils";
 import "../styles/Article.css";
+import { ErrorMsg } from "./ErrorMsg";
 
 export function Article() {
   const params = useParams();
@@ -10,6 +11,7 @@ export function Article() {
 
   const [article, setArticle] = useState(null);
   const [isArticleLoading, setIsArticleLoading] = useState(true);
+  const [articleError, setArticleError] = useState({ code: null });
 
   useEffect(() => {
     setIsArticleLoading(true);
@@ -20,8 +22,16 @@ export function Article() {
         console.log(data);
         setIsArticleLoading(false);
       })
-      .catch(console.log);
+      .catch(({ response }) => {
+        console.log(response.data);
+        setArticleError(response.data);
+      });
   }, []);
+
+  if (articleError.code) {
+    console.log("errored");
+    return <ErrorMsg error={articleError} />;
+  }
 
   if (isArticleLoading)
     return (
@@ -29,12 +39,13 @@ export function Article() {
         <em>Article #{article_id} is loading...</em>
       </>
     );
+
   return (
     <article className="article">
       <h3 className="article-title">{article.title}</h3>
       <p>
         Topic:{" "}
-        <Link className="link" to={`topic/${article.topic}`}>
+        <Link className="link" to={`/topics/${article.topic}`}>
           {article.topic}
         </Link>
       </p>

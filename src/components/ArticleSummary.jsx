@@ -17,7 +17,7 @@ export function ArticleSummary({ article }) {
       <img src={article.article_img_url} />
       <p>
         Topic:{" "}
-        <Link className="link" to={`topic/${article.topic}`}>
+        <Link className="link" to={`/topics/${article.topic}`}>
           {article.topic}
         </Link>
       </p>
