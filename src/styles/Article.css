@@ -1,0 +1,21 @@
+.article-img {
+  width: 100%;
+  border: 2px var(--temp) solid;
+  border-radius: 1rem;
+}
+
+.article {
+  background-color: var(--card-background);
+  color: var(--card-paragraph);
+  padding: 1rem;
+  border-radius: 0 1rem 0 1rem;
+}
+
+.article-title {
+  color: var(--card-heading);
+}
+
+.article-body {
+  text-align: justify;
+  margin: 1rem;
+}

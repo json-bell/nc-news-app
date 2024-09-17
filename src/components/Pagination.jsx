@@ -33,7 +33,7 @@ export function Pagination({ setListPagination, listPagination, totalCount }) {
     1
   );
   const maxArticleIndex = Math.min(
-    listPagination.limit * listPagination.p + 1,
+    listPagination.limit * listPagination.p,
     totalCount
   );
 

@@ -14,9 +14,9 @@ export function ArticleList({ listPagination, setTotalCount }) {
       .then(({ data: { articles, total_count } }) => {
         setArticles(articles);
         setTotalCount(total_count);
+        setIsArticlesLoading(false);
       })
-      .catch(console.log)
-      .finally(setIsArticlesLoading(false));
+      .catch(console.log);
   }, [listPagination]);
 
   if (isArticlesLoading) {

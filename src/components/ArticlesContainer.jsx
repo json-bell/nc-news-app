@@ -8,7 +8,6 @@ export function ArticlesContainer() {
 
   return (
     <>
-      <p>Containing those Articles MODIFY</p>
       <Pagination
         setListPagination={setListPagination}
         listPagination={listPagination}
