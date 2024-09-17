@@ -31,9 +31,7 @@ export function Article({ setArticleNotFound }) {
 
   function incrementArticleVote(inc_votes) {
     const payload = { inc_votes };
-    return apiClient
-      .patch(`articles/${article_id}`, payload)
-      .then((data) => console.log(data));
+    return apiClient.patch(`articles/${article_id}`, payload);
   }
 
   if (articleError.code) {
