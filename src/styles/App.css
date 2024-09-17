@@ -15,8 +15,9 @@
   --card-paragraph: #94a1b2;
   --card-heading: #fffffe;
   --highlight: #2cb67d;
-  --link: #7f5af0;
+  --link: #2cb67d;
   --icon-secondary: #72757e;
+  --nothing: #7f5af0;
 }
 
 /* h1 {
