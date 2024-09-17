@@ -1,0 +1,20 @@
+.skip-nav-menu {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip-nav-menu:focus-within {
+  position: absolute;
+  left: auto;
+  right: auto;
+  width: auto;
+  height: auto;
+  background-color: white;
+  color: black;
+  border: 5px solid black;
+  padding: 0.5rem;
+}

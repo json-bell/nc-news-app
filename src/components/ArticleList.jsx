@@ -30,7 +30,7 @@ export function ArticleList({ listPagination, setTotalCount }) {
 
   return (
     <>
-      <h2>Here's the articles MODIFY</h2>
+      <h2 id="articles">Here's the articles MODIFY</h2>
       <ul className="article-list">
         {articles.map((article) => (
           <ArticleSummary key={article.article_id} article={article} />

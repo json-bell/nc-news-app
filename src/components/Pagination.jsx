@@ -45,6 +45,7 @@ export function Pagination({ setListPagination, listPagination, totalCount }) {
           handleSubmit();
         }}
         className="pagination-container"
+        id="pagination"
       >
         <label htmlFor="limit" className="pagination-label">
           Articles per page:{" "}
@@ -81,7 +82,14 @@ export function Pagination({ setListPagination, listPagination, totalCount }) {
             id="page"
             onChange={handlePageUpdate}
             value={pageInput}
-            onBlur={handleSubmit}
+            onBlur={(event) => {
+              console.log("input:", pageInput, "and value:", listPagination.p);
+              console.log(Number(pageInput) !== listPagination.p);
+              if (Number(pageInput) !== listPagination.p) {
+                console.log("submitting");
+                handleSubmit(event);
+              }
+            }}
             className="pagination-page_num"
           ></input>
           <button
