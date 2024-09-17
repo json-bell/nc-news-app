@@ -1,17 +1,12 @@
 import { useContext, useEffect } from "react";
 import { ArticlesContainer } from "./ArticlesContainer";
 import { NavContext } from "../contexts/NavContext";
+import { includeSkipNavs } from "../utils";
 
 export function Home() {
   const { setSkipNavInfo } = useContext(NavContext);
   useEffect(() => {
-    setSkipNavInfo([
-      {
-        id: "articles",
-        contentName: "Articles",
-      },
-      { id: "pagination", contentName: "Pagination" },
-    ]);
+    includeSkipNavs(setSkipNavInfo, ["articles", "pagination"]);
   }, []);
 
   return (

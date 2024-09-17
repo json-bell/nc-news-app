@@ -20,7 +20,6 @@ export function ArticleList({ listPagination, setTotalCount }) {
   }, [listPagination]);
 
   if (isArticlesLoading) {
-    console.log("loading...");
     return (
       <>
         <h2 style={{ color: "red" }}>Articles are loading...</h2>
