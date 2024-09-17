@@ -1,0 +1,34 @@
+.votes {
+  grid-area: votes;
+  text-align: center;
+}
+
+.vote-button {
+  color: var(--highlight);
+  background-color: var(--background);
+  font-weight: 1000;
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
+.vote-count {
+  padding: 0.3rem;
+  margin: 0.3rem;
+  border: 1px solid color-mix(in srgb, var(--highlight) 50%, var(--temp2));
+  border-radius: 0.4rem;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.vote-error {
+  position: absolute;
+  margin: 0.5rem;
+  animation: fadeOut 1s ease-in;
+}

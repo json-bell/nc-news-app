@@ -3,6 +3,7 @@ import { apiClient } from "../client";
 import { useParams } from "react-router-dom";
 import "../styles/Comments.css";
 import { convertDateLong } from "../utils";
+import { Votes } from "./Votes";
 
 export function Comments({ articleNotFound }) {
   if (articleNotFound) return <></>;
@@ -41,11 +42,7 @@ export function Comments({ articleNotFound }) {
             <p className="comment-time">
               {convertDateLong(comment.created_at)}
             </p>
-            <div className="comment-votes">
-              <button className="up-vote comment-vote-button">&uarr;</button>
-              <span className="vote-count">{comment.votes}</span>
-              <button className="down-vote comment-vote-button">&darr;</button>
-            </div>
+            <Votes votes={comment.votes} />
             <p className="comment-body">{comment.body}</p>
           </li>
         ))}
