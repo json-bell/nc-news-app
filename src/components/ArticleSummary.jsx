@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import { convertDateShort } from "../utils";
 
 export function ArticleSummary({ article }) {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ export function ArticleSummary({ article }) {
         </Link>
       </p>
       <p>
-        Written by {article.author} at {article.created_at}
+        Written by {article.author} on {convertDateShort(article.created_at)}
       </p>
     </li>
   );

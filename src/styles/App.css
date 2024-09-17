@@ -34,5 +34,5 @@ a {
   text-decoration: inherit;
 }
 a:hover {
-  color: color-mix(in srgb, var(--link) 70%);
+  color: color-mix(in srgb, var(--link) 70%, white);
 }
