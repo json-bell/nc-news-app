@@ -42,7 +42,7 @@ export function Article() {
 
   return (
     <article className="article">
-      <h3 className="article-title">{article.title}</h3>
+      <h2 className="article-title">{article.title}</h2>
       <p>
         Topic:{" "}
         <Link className="link" to={`/topics/${article.topic}`}>
@@ -52,7 +52,7 @@ export function Article() {
       <p>
         Written by {article.author}, on {convertDateLong(article.created_at)}
       </p>
-      <img src={article.article_img_url} className="article-img" />
+      <img src={article.article_img_url} className="article-img" alt="" />
       <p className="article-body">{article.body}</p>
     </article>
   );
