@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import "../styles/Comments.css";
 import { convertDateLong } from "../utils";
 import { Votes } from "./Votes";
+import { CommentForm } from "./CommentForm";
 
 export function Comments({ articleNotFound }) {
   if (articleNotFound) return <></>;
@@ -42,6 +43,7 @@ export function Comments({ articleNotFound }) {
           ? "There are no comments yet... Be the first!"
           : "Here are the comments"}
       </h3>
+      <CommentForm article_id={article_id} />
       <ul className="comment-list">
         {comments.map((comment) => (
           <li key={comment.comment_id} className="comment-item">

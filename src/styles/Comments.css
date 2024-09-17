@@ -3,7 +3,8 @@
   padding: 0;
 }
 
-.comment-item {
+.comment-item,
+.comment-form {
   border-radius: 0 1rem 0 1rem;
   background-color: var(--card-background);
   color: var(--card-paragraph);
@@ -12,33 +13,43 @@
   text-align: left;
 }
 
-.comment-item {
+.comment-item,
+.comment-form {
   display: grid;
   grid-template-areas:
     "author votes time"
-    "body body body";
+    "body body body"
+    "na na submit";
   grid-template-columns: minmax(100px, 170px) minmax(105px, 150px) minmax(
       150px,
       1fr
     );
 }
 
-.comment-author {
+.comment-author,
+.comment-form-label {
   grid-area: author;
   color: var(--card-heading);
   margin: 0;
   margin-right: 1rem;
 }
 
-.comment-time {
+.comment-time,
+.form-date {
   grid-area: time;
   text-align: right;
   margin: 0;
 }
 
-.comment-body {
+.comment-body,
+.comment-form-body {
   grid-area: body;
   text-indent: 2rem;
+  margin: 1rem 0;
+}
+
+.comment-form-body {
+  height: 4rem;
 }
 
 .comment-votes {
@@ -59,4 +70,14 @@
   margin: 0.3rem;
   border: 1px solid color-mix(in srgb, var(--highlight) 50%, var(--temp2));
   border-radius: 0.4rem;
+}
+
+.form-button {
+  position: relative;
+  left: auto;
+  right: 0;
+  bottom: 0;
+  grid-area: submit;
+  display: block;
+  background-color: var(--button);
 }
