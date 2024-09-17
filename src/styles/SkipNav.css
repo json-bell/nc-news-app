@@ -1,0 +1,25 @@
+.skip-nav {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip-nav:focus {
+  position: absolute;
+  left: auto;
+  right: auto;
+  width: auto;
+  height: auto;
+  background-color: white;
+  color: black;
+  border: 5px solid black;
+  padding: 0.5rem;
+}
+
+.skip-nav {
+  /* This doesn't do anything rn */
+  transition: transform 0.3s;
+}

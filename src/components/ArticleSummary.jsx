@@ -12,6 +12,7 @@ export function ArticleSummary({ article }) {
     <li
       className="article-summary"
       onClick={() => handleArticleClick(article.article_id)}
+      tabIndex={0}
     >
       <h3 className="title">{article.title}</h3>
       <img src={article.article_img_url} />
