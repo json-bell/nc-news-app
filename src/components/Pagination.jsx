@@ -28,14 +28,12 @@ export function Pagination({ setListPagination, listPagination, totalCount }) {
     setListPagination(({ limit }) => ({ limit, p: Number(pageInput) }));
   }
 
-  const minArticleIndex = Math.max(
-    listPagination.limit * (listPagination.p - 1) + 1,
-    1
-  );
-  const maxArticleIndex = Math.min(
-    listPagination.limit * listPagination.p,
-    totalCount
-  );
+  const minArticleIndex = listPagination.limit
+    ? Math.max(listPagination.limit * (listPagination.p - 1) + 1, 1)
+    : 1;
+  const maxArticleIndex = listPagination.limit
+    ? Math.min(listPagination.limit * listPagination.p, totalCount)
+    : totalCount;
 
   return (
     <>
@@ -81,7 +79,7 @@ export function Pagination({ setListPagination, listPagination, totalCount }) {
             type="number"
             id="page"
             onChange={handlePageUpdate}
-            value={pageInput}
+            value={listPagination.limit ? pageInput : 1}
             onBlur={(event) => {
               if (Number(pageInput) !== listPagination.p) {
                 handleSubmit(event);

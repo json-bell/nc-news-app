@@ -4,6 +4,7 @@ import { convertDateLong } from "../utils";
 import "../styles/Article.css";
 import { ErrorMsg } from "./ErrorMsg";
 import { apiClient } from "../client";
+import { Votes } from "./Votes";
 
 export function Article({ setArticleNotFound }) {
   const params = useParams();
@@ -28,6 +29,13 @@ export function Article({ setArticleNotFound }) {
       });
   }, []);
 
+  function incrementArticleVote(inc_votes) {
+    const payload = { inc_votes };
+    return apiClient
+      .patch(`articles/${article_id}`, payload)
+      .then((data) => console.log(data));
+  }
+
   if (articleError.code) {
     console.log("errored");
     return <ErrorMsg error={articleError} />;
@@ -49,6 +57,7 @@ export function Article({ setArticleNotFound }) {
           {article.topic}
         </Link>
       </p>
+      <Votes votes={article.votes} incrementVote={incrementArticleVote} />
       <p>
         Written by {article.author}, on {convertDateLong(article.created_at)}
       </p>
