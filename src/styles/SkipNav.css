@@ -1,4 +1,4 @@
-.skip-nav {
+.skip-nav-menu {
   position: absolute;
   left: -10000px;
   top: auto;
@@ -7,7 +7,7 @@
   overflow: hidden;
 }
 
-.skip-nav:focus {
+.skip-nav-menu:focus-within {
   position: absolute;
   left: auto;
   right: auto;
@@ -17,9 +17,4 @@
   color: black;
   border: 5px solid black;
   padding: 0.5rem;
-}
-
-.skip-nav {
-  /* This doesn't do anything rn */
-  transition: transform 0.3s;
 }

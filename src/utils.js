@@ -18,3 +18,5 @@ export function convertDateShort(isoDate) {
   const formatter = new Intl.DateTimeFormat("en-GB", options);
   return formatter.format(dateObj);
 }
+
+export function includeSkipNavs(linkIds, setSkipNavInfo) {}

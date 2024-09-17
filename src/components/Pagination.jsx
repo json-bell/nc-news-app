@@ -45,6 +45,7 @@ export function Pagination({ setListPagination, listPagination, totalCount }) {
           handleSubmit();
         }}
         className="pagination-container"
+        id="pagination"
       >
         <label htmlFor="limit" className="pagination-label">
           Articles per page:{" "}
