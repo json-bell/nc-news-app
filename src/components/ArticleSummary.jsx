@@ -12,6 +12,9 @@ export function ArticleSummary({ article }) {
     <li
       className="article-summary"
       onClick={() => handleArticleClick(article.article_id)}
+      onKeyDown={({ key }) => {
+        if (key === "Enter") handleArticleClick(article.article_id);
+      }}
       tabIndex={0}
     >
       <Card extraClasses={["focusable"]}>

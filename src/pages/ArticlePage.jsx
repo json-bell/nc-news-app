@@ -9,7 +9,7 @@ export function ArticlePage() {
 
   const { setSkipNavInfo } = useContext(NavContext);
   useEffect(() => {
-    includeSkipNavs(setSkipNavInfo, ["articles", "comments"]);
+    includeSkipNavs(setSkipNavInfo, ["article", "comments"]);
   }, []);
 
   return (

@@ -45,8 +45,8 @@ export function Comments({ articleNotFound }) {
       <CommentForm article_id={article_id} />
       <ul className="comment-list">
         {comments.map((comment) => (
-          <Card>
-            <li key={comment.comment_id} className="comment-item">
+          <Card key={comment.comment_id}>
+            <li className="comment-item">
               <h4 className="comment-author">{comment.author} says</h4>
               <p className="comment-time">
                 {convertDateLong(comment.created_at)}
