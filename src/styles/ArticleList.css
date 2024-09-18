@@ -8,30 +8,12 @@
 }
 
 .article-summary {
-  border-radius: 0 1rem 0 1rem;
-  background-color: var(--card-background);
-  color: var(--card-paragraph);
   width: 340px;
-  margin: 1rem;
-  padding: 1rem;
-  box-shadow: 5px 10px 20px
-    color-mix(in srgb, var(--card-background) 50%, var(--background) 50%);
 }
-.article-summary:hover,
+.article-summary .card {
+  height: 1fr;
+}
+
 .article-summary:focus {
-  box-shadow: 5px 10px 20px
-    color-mix(in srgb, var(--highlight) 50%, var(--background));
-}
-
-.article-summary > .title {
-  color: var(--card-heading);
-  margin: 1rem 0;
-}
-
-.article-summary img {
-  display: block;
-  width: 90%;
-  border: var(--icon-secondary) 3px solid;
-  border-radius: 0.4rem;
-  margin: 0 auto;
+  outline: none;
 }

@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { ArticlesContainer } from "./ArticlesContainer";
+import { ArticlesContainer } from "../components/ArticlesContainer";
 import { NavContext } from "../contexts/NavContext";
 import { includeSkipNavs } from "../utils";
 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { ArticleSummary } from "./ArticleSummary";
-import { apiClient } from "../client.jsx";
+import { fetchArticles } from "../client.jsx";
 import "../styles/ArticleList.css";
 
 export function ArticleList({ listPagination, setTotalCount }) {
@@ -9,14 +9,11 @@ export function ArticleList({ listPagination, setTotalCount }) {
 
   useEffect(() => {
     setIsArticlesLoading(true);
-    apiClient
-      .get("articles", { params: { ...listPagination } })
-      .then(({ data: { articles, total_count } }) => {
-        setArticles(articles);
-        setTotalCount(total_count);
-        setIsArticlesLoading(false);
-      })
-      .catch(console.log);
+    fetchArticles({ ...listPagination }).then(({ articles, total_count }) => {
+      setArticles(articles);
+      setTotalCount(total_count);
+      setIsArticlesLoading(false);
+    });
   }, [listPagination]);
 
   if (isArticlesLoading) {

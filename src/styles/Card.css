@@ -1,0 +1,33 @@
+.card {
+  background-color: var(--card-background);
+  color: var(--card-paragraph);
+  border-radius: 0 1rem 0 1rem;
+  margin: 1rem;
+  padding: 1rem;
+  box-shadow: 5px 10px 20px
+    color-mix(in srgb, var(--card-background) 50%, var(--background) 50%);
+}
+
+.card .heading {
+  color: var(--card-heading);
+  margin: 1rem 0;
+}
+
+.card img {
+  border: var(--icon-secondary) 2px solid;
+  border-color: var(--temp);
+  display: block;
+  width: 90%;
+  border-radius: 0.4rem;
+  margin: 0 auto;
+}
+
+li:hover .card.focusable,
+li:focus .card.focusable {
+  box-shadow: 5px 10px 20px
+    color-mix(in srgb, var(--highlight) 50%, var(--background));
+}
+
+li:focus .card {
+  outline: auto;
+}

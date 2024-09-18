@@ -3,8 +3,9 @@ import { Link, useParams } from "react-router-dom";
 import { convertDateLong } from "../utils";
 import "../styles/Article.css";
 import { ErrorMsg } from "./ErrorMsg";
-import { apiClient } from "../client";
+import { fetchArticleById, patchArticleVotes } from "../client";
 import { Votes } from "./Votes";
+import { Card } from "./Card";
 
 export function Article({ setArticleNotFound }) {
   const params = useParams();
@@ -16,10 +17,9 @@ export function Article({ setArticleNotFound }) {
 
   useEffect(() => {
     setIsArticleLoading(true);
-    apiClient
-      .get(`/articles/${article_id}`)
-      .then(({ data }) => {
-        setArticle(data.article);
+    fetchArticleById(article_id)
+      .then(({ article }) => {
+        setArticle(article);
         setIsArticleLoading(false);
         setArticleNotFound(false);
       })
@@ -30,12 +30,10 @@ export function Article({ setArticleNotFound }) {
   }, []);
 
   function incrementArticleVote(inc_votes) {
-    const payload = { inc_votes };
-    return apiClient.patch(`articles/${article_id}`, payload);
+    return patchArticleVotes(article_id, inc_votes);
   }
 
   if (articleError.code) {
-    console.log("errored");
     return <ErrorMsg error={articleError} />;
   }
 
@@ -45,22 +43,23 @@ export function Article({ setArticleNotFound }) {
         <em>Article #{article_id} is loading...</em>
       </>
     );
-
   return (
     <article className="article">
-      <h2 className="article-title">{article.title}</h2>
-      <p>
-        Topic:{" "}
-        <Link className="link" to={`/topics/${article.topic}`}>
-          {article.topic}
-        </Link>
-      </p>
-      <Votes votes={article.votes} incrementVote={incrementArticleVote} />
-      <p>
-        Written by {article.author}, on {convertDateLong(article.created_at)}
-      </p>
-      <img src={article.article_img_url} className="article-img" alt="" />
-      <p className="article-body">{article.body}</p>
+      <Card>
+        <h2 className="heading">{article.title}</h2>
+        <p>
+          Topic:{" "}
+          <Link className="link" to={`/topics/${article.topic}`}>
+            {article.topic}
+          </Link>
+        </p>
+        <Votes votes={article.votes} incrementVote={incrementArticleVote} />
+        <p>
+          Written by {article.author}, on {convertDateLong(article.created_at)}
+        </p>
+        <img src={article.article_img_url} className="article-img" alt="" />
+        <p className="article-body">{article.body}</p>
+      </Card>
     </article>
   );
 }
