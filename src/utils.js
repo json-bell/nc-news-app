@@ -23,6 +23,7 @@ export function includeSkipNavs(setSkipNavInfo, linkIds = ["end-nav"]) {
   const skipableContent = [
     { id: "end-nav", contentName: "Content" },
     { id: "articles", contentName: "Articles" },
+    { id: "article", contentName: "Article" },
     { id: "pagination", contentName: "Pagination" },
     { id: "comments", contentName: "Comments" },
   ];
@@ -34,4 +35,11 @@ export function includeSkipNavs(setSkipNavInfo, linkIds = ["end-nav"]) {
       }
   );
   setSkipNavInfo(skipInfo);
+}
+
+export function pulseMsg(msgString, setMsg, pulseDelay = 2000) {
+  setMsg(msgString);
+  setTimeout(() => {
+    setMsg(null);
+  }, pulseDelay);
 }

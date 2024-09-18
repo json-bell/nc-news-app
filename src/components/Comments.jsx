@@ -42,11 +42,11 @@ export function Comments({ articleNotFound }) {
           ? "There are no comments yet... Be the first!"
           : "Here are the comments"}
       </h3>
-      <CommentForm article_id={article_id} />
+      <CommentForm article_id={article_id} setComments={setComments} />
       <ul className="comment-list">
         {comments.map((comment) => (
-          <Card>
-            <li key={comment.comment_id} className="comment-item">
+          <Card key={comment.comment_id}>
+            <li className="comment-item">
               <h4 className="comment-author">{comment.author} says</h4>
               <p className="comment-time">
                 {convertDateLong(comment.created_at)}

@@ -44,7 +44,7 @@ export function Article({ setArticleNotFound }) {
       </>
     );
   return (
-    <article className="article">
+    <article className="article" id="article">
       <Card>
         <h2 className="heading">{article.title}</h2>
         <p>

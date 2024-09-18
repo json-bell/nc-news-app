@@ -18,17 +18,6 @@
   border-radius: 0.4rem;
 }
 
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
 .vote-error {
   position: absolute;
-  margin: 0.5rem;
-  animation: fadeOut 1s ease-in;
 }

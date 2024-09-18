@@ -22,10 +22,13 @@ export const fetchArticleById = (article_id) => {
 export const fetchCommentsByArticle = (article_id) => {
   return apiClient
     .get(`/articles/${article_id}/comments`)
-    .then(({ data }) => data)
+    .then(({ data }) => {
+      console.log(data);
+      return data;
+    })
     .catch((err) => console.log("comments err", err));
 };
-// When article isn't found this is throwing an error - is a catch here not enough? Adding one in comments removes the error...
+// When article isn't found this is throwing an extra error - is a catch here not enough? Adding one in comments removes the error...
 
 export const patchArticleVotes = (article_id, inc_votes) => {
   const payload = { inc_votes };
@@ -35,4 +38,14 @@ export const patchArticleVotes = (article_id, inc_votes) => {
 export const patchCommentVotes = (comment_id, inc_votes) => {
   const payload = { inc_votes };
   return apiClient.patch(`comments/${comment_id}`, payload);
+};
+
+export const postComment = ({ article_id, body, username }) => {
+  const payload = { username, body };
+  return apiClient
+    .post(`articles/${article_id}/comments`, payload)
+    .then(({ data }) => {
+      console.log("new Comment:", data);
+      return data;
+    });
 };
