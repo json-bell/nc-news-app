@@ -3,10 +3,9 @@ import { convertDateLong, pulseMsg } from "../utils";
 import { Card } from "./Card";
 import { postComment } from "../client";
 
-export function CommentForm({ article_id, setComments }) {
+export function CommentForm({ article_id, setComments, setCommentJustPosted }) {
   const [commentInput, setCommentInput] = useState("");
   const [commentMsg, setCommentMsg] = useState(null);
-  const [postedNewComment, setPostedNewComment] = useState(true);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -20,6 +19,10 @@ export function CommentForm({ article_id, setComments }) {
         .then(({ comment }) => {
           setCommentInput("");
           setComments((comments) => [comment, ...comments]);
+          setCommentJustPosted(true);
+          setTimeout(() => {
+            setCommentJustPosted(false);
+          }, 400);
         })
         .catch((err) => {
           console.log(err);

@@ -99,3 +99,11 @@
 .comment-error {
   grid-area: error;
 }
+
+.first-comment {
+  transition: box-shadow 0.5s ease-in-out;
+}
+
+.comment-just-posted .first-comment {
+  box-shadow: 5px 10px 20px var(--highlight);
+}
