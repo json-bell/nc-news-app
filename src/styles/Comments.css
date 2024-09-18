@@ -38,8 +38,13 @@
 .comment-body,
 .comment-form-body {
   grid-area: body;
-  text-indent: 2rem;
   margin: 1rem 0;
+}
+.comment-body {
+  text-indent: 2rem;
+}
+.comment-form-body {
+  padding: 0.4rem;
 }
 
 .comment-votes {

@@ -1,9 +1,27 @@
-import { convertDateLong, convertDateShort } from "../utils";
+import { useState } from "react";
+import { convertDateLong } from "../utils";
 import { Card } from "./Card";
+import { postComment } from "../client";
 
 export function CommentForm({ article_id }) {
+  const [commentInput, setCommentInput] = useState("");
+
   function handleSubmit(event) {
     event.preventDefault();
+    if (commentInput.length > 0) {
+      postComment({
+        article_id,
+        username: "grumpy19",
+        body: commentInput,
+      }).then(() => {
+        setCommentInput("");
+      });
+    }
+  }
+
+  function handleUpdate(event) {
+    console.log(event.target.value);
+    setCommentInput(event.target.value);
   }
 
   return (
@@ -18,7 +36,9 @@ export function CommentForm({ article_id }) {
           <textarea
             id="body"
             className="comment-form-body"
-            placeholder="Your comment"
+            placeholder="Your comment..."
+            value={commentInput}
+            onChange={handleUpdate}
           ></textarea>
           <button type="submit" className="form-button">
             Post

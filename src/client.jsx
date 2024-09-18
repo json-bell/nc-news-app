@@ -25,7 +25,7 @@ export const fetchCommentsByArticle = (article_id) => {
     .then(({ data }) => data)
     .catch((err) => console.log("comments err", err));
 };
-// When article isn't found this is throwing an error - is a catch here not enough? Adding one in comments removes the error...
+// When article isn't found this is throwing an extra error - is a catch here not enough? Adding one in comments removes the error...
 
 export const patchArticleVotes = (article_id, inc_votes) => {
   const payload = { inc_votes };
@@ -35,4 +35,10 @@ export const patchArticleVotes = (article_id, inc_votes) => {
 export const patchCommentVotes = (comment_id, inc_votes) => {
   const payload = { inc_votes };
   return apiClient.patch(`comments/${comment_id}`, payload);
+};
+
+export const postComment = ({ article_id, body, username }) => {
+  const payload = { username, body };
+  console.log(payload);
+  return apiClient.post(`articles/${article_id}/comments`, payload);
 };
