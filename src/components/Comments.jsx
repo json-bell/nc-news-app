@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { apiClient } from "../client";
+import { fetchCommentsByArticle, patchCommentVotes } from "../client";
 import { useParams } from "react-router-dom";
 import "../styles/Comments.css";
 import { convertDateLong } from "../utils";
@@ -7,7 +7,6 @@ import { Votes } from "./Votes";
 import { CommentForm } from "./CommentForm";
 
 export function Comments({ articleNotFound }) {
-  if (articleNotFound) return <></>;
   const params = useParams();
   const article_id = Number(params.article_id);
 
@@ -15,19 +14,18 @@ export function Comments({ articleNotFound }) {
   const [isCommentsLoading, setIsCommentsLoading] = useState(true);
 
   function incrementVoteByCommentId(comment_id) {
-    return (inc_votes) => {
-      const payload = { inc_votes };
-      return apiClient.patch(`comments/${comment_id}`, payload);
-    };
+    return (inc_votes) => patchCommentVotes(comment_id, inc_votes);
   }
 
   useEffect(() => {
     setIsCommentsLoading(true);
-    apiClient.get(`/articles/${article_id}/comments`).then(({ data }) => {
-      setComments(data.comments);
+    fetchCommentsByArticle(article_id).then(({ comments }) => {
+      setComments(comments);
       setIsCommentsLoading(false);
     });
   }, []);
+
+  if (articleNotFound) return <></>;
 
   if (isCommentsLoading)
     return (

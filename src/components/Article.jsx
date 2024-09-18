@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { convertDateLong } from "../utils";
 import "../styles/Article.css";
 import { ErrorMsg } from "./ErrorMsg";
-import { apiClient } from "../client";
+import { fetchArticleById, patchArticleVotes } from "../client";
 import { Votes } from "./Votes";
 
 export function Article({ setArticleNotFound }) {
@@ -16,10 +16,9 @@ export function Article({ setArticleNotFound }) {
 
   useEffect(() => {
     setIsArticleLoading(true);
-    apiClient
-      .get(`/articles/${article_id}`)
-      .then(({ data }) => {
-        setArticle(data.article);
+    fetchArticleById(article_id)
+      .then(({ article }) => {
+        setArticle(article);
         setIsArticleLoading(false);
         setArticleNotFound(false);
       })
@@ -30,12 +29,10 @@ export function Article({ setArticleNotFound }) {
   }, []);
 
   function incrementArticleVote(inc_votes) {
-    const payload = { inc_votes };
-    return apiClient.patch(`articles/${article_id}`, payload);
+    return patchArticleVotes(article_id, inc_votes);
   }
 
   if (articleError.code) {
-    console.log("errored");
     return <ErrorMsg error={articleError} />;
   }
 
