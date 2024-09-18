@@ -71,7 +71,7 @@
   grid-template-areas:
     "author time time"
     "body body body"
-    "error error submit";
+    "error message submit";
   grid-template-columns: 1fr 1.33fr 140px;
 }
 
@@ -98,4 +98,18 @@
 
 .comment-error {
   grid-area: error;
+  overflow: visible;
+  text-wrap: nowrap;
+}
+.comment-message {
+  grid-area: message;
+  text-align: right;
+}
+
+.first-comment {
+  transition: box-shadow 0.5s ease-in-out;
+}
+
+.comment-just-posted .first-comment {
+  box-shadow: 5px 10px 20px var(--highlight);
 }

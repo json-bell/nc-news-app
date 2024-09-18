@@ -46,7 +46,7 @@ export function Votes({ votes, incrementVote = defaultFunc }) {
         &darr;
       </button>
       {voteError ? (
-        <em className="vote-error pulse-error">{voteError}</em>
+        <em className="vote-error pulse-message">{voteError}</em>
       ) : null}
     </div>
   );
