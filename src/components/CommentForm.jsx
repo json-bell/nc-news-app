@@ -53,7 +53,7 @@ export function CommentForm({ article_id, setComments }) {
             Post
           </button>
           {commentMsg ? (
-            <em className={"comment-error pulse-error"}>{commentMsg}</em>
+            <em className={"comment-error pulse-message"}>{commentMsg}</em>
           ) : null}
         </form>
       </Card>

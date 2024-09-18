@@ -42,7 +42,7 @@ a:hover {
   }
 }
 
-.pulse-error {
+.pulse-message {
   margin: 0.5rem;
   animation: fadeOut 2s ease-in-out;
 }
