@@ -3,7 +3,7 @@ import { convertDateLong } from "../utils";
 import { Card } from "./Card";
 import { postComment } from "../client";
 
-export function CommentForm({ article_id }) {
+export function CommentForm({ article_id, setComments }) {
   const [commentInput, setCommentInput] = useState("");
 
   function handleSubmit(event) {
@@ -13,8 +13,9 @@ export function CommentForm({ article_id }) {
         article_id,
         username: "grumpy19",
         body: commentInput,
-      }).then(() => {
+      }).then(({ comment }) => {
         setCommentInput("");
+        setComments((comments) => [comment, ...comments]);
       });
     }
   }

@@ -42,7 +42,7 @@ export function Comments({ articleNotFound }) {
           ? "There are no comments yet... Be the first!"
           : "Here are the comments"}
       </h3>
-      <CommentForm article_id={article_id} />
+      <CommentForm article_id={article_id} setComments={setComments} />
       <ul className="comment-list">
         {comments.map((comment) => (
           <Card key={comment.comment_id}>

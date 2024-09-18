@@ -32,3 +32,18 @@ a {
 a:hover {
   color: color-mix(in srgb, var(--link) 70%, white);
 }
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.pulse-error {
+  position: absolute;
+  margin: 0.5rem;
+  animation: fadeOut 1s ease-in;
+}
