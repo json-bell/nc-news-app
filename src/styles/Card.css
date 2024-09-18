@@ -1,5 +1,5 @@
 .card {
-  background-color: rgb(17, 80, 80);
+  background-color: var(--card-background);
   color: var(--card-paragraph);
   border-radius: 0 1rem 0 1rem;
   margin: 1rem;
@@ -8,15 +8,14 @@
     color-mix(in srgb, var(--card-background) 50%, var(--background) 50%);
 }
 
-.card > .heading {
-  /* color: var(--card-heading); */
-  color: magenta;
+.card .heading {
+  color: var(--card-heading);
   margin: 1rem 0;
 }
 
 .card img {
-  border: var(--icon-secondary) 3px solid;
-  border-color: blue;
+  border: var(--icon-secondary) 2px solid;
+  border-color: var(--temp);
   display: block;
   width: 90%;
   border-radius: 0.4rem;

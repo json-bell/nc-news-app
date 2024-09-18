@@ -5,6 +5,7 @@ import "../styles/Comments.css";
 import { convertDateLong } from "../utils";
 import { Votes } from "./Votes";
 import { CommentForm } from "./CommentForm";
+import { Card } from "./Card";
 
 export function Comments({ articleNotFound }) {
   const params = useParams();
@@ -44,18 +45,20 @@ export function Comments({ articleNotFound }) {
       <CommentForm article_id={article_id} />
       <ul className="comment-list">
         {comments.map((comment) => (
-          <li key={comment.comment_id} className="comment-item">
-            <h4 className="comment-author">{comment.author} says</h4>
-            <p className="comment-time">
-              {convertDateLong(comment.created_at)}
-            </p>
-            <Votes
-              votes={comment.votes}
-              incrementVote={incrementVoteByCommentId(comment.comment_id)}
-              errorLocation={"below"}
-            />
-            <p className="comment-body">{comment.body}</p>
-          </li>
+          <Card>
+            <li key={comment.comment_id} className="comment-item">
+              <h4 className="comment-author">{comment.author} says</h4>
+              <p className="comment-time">
+                {convertDateLong(comment.created_at)}
+              </p>
+              <Votes
+                votes={comment.votes}
+                incrementVote={incrementVoteByCommentId(comment.comment_id)}
+                errorLocation={"below"}
+              />
+              <p className="comment-body">{comment.body}</p>
+            </li>
+          </Card>
         ))}
       </ul>
     </>
