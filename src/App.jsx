@@ -1,10 +1,8 @@
 import { Route, Routes, useNavigate } from "react-router-dom";
 import "./styles/App.css";
 import { Header } from "./components/Header";
-import { Home } from "./components/Home";
-import { ArticlePage } from "./components/ArticlePage";
-import { useContext, useEffect } from "react";
-import { NavContext } from "./contexts/NavContext";
+import { Home } from "./pages/Home";
+import { ArticlePage } from "./pages/ArticlePage";
 
 function App() {
   // const { setSkipNavInfo } = useContext(NavContext);

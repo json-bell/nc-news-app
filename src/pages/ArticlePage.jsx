@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
-import { Article } from "./Article";
-import { Comments } from "./Comments";
+import { Article } from "../components/Article";
+import { Comments } from "../components/Comments";
 import { includeSkipNavs } from "../utils";
 import { NavContext } from "../contexts/NavContext";
 

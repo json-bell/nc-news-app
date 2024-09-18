@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { convertDateShort } from "../utils";
+import { Card } from "./Card";
 
 export function ArticleSummary({ article }) {
   const navigate = useNavigate();
@@ -13,18 +14,20 @@ export function ArticleSummary({ article }) {
       onClick={() => handleArticleClick(article.article_id)}
       tabIndex={0}
     >
-      <h3 className="title">{article.title}</h3>
-      <img src={article.article_img_url} alt="" />
-      <p>
-        Topic:{" "}
-        <Link className="link" to={`/topics/${article.topic}`}>
-          {article.topic}
-        </Link>
-      </p>
-      <p>Votes: {article.votes}</p>
-      <p>
-        Written by {article.author} on {convertDateShort(article.created_at)}
-      </p>
+      <Card extraClasses={["focusable"]}>
+        <h3 className="heading">{article.title}</h3>
+        <img src={article.article_img_url} alt="" />
+        <p>
+          Topic:{" "}
+          <Link className="link" to={`/topics/${article.topic}`}>
+            {article.topic}
+          </Link>
+        </p>
+        <p>Votes: {article.votes}</p>
+        <p>
+          Written by {article.author} on {convertDateShort(article.created_at)}
+        </p>
+      </Card>
     </li>
   );
 }
