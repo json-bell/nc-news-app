@@ -6,6 +6,7 @@ import { postComment } from "../client";
 export function CommentForm({ article_id, setComments, setCommentJustPosted }) {
   const [commentInput, setCommentInput] = useState("");
   const [commentMsg, setCommentMsg] = useState(null);
+  const [commentError, setCommentError] = useState(null);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -26,9 +27,9 @@ export function CommentForm({ article_id, setComments, setCommentJustPosted }) {
         })
         .catch((err) => {
           console.log(err);
-          pulseMsg("That didn't work...", setCommentMsg);
+          pulseMsg("That didn't work...", setCommentError);
         });
-    } else pulseMsg("Can't post empty comment...", setCommentMsg);
+    } else pulseMsg("Can't post empty comment...", setCommentError);
   }
 
   function handleUpdate(event) {
@@ -56,7 +57,10 @@ export function CommentForm({ article_id, setComments, setCommentJustPosted }) {
             Post
           </button>
           {commentMsg ? (
-            <em className={"comment-error pulse-message"}>{commentMsg}</em>
+            <em className={"comment-message pulse-message"}>{commentMsg}</em>
+          ) : null}
+          {commentError ? (
+            <em className={"comment-error pulse-message"}>{commentError}</em>
           ) : null}
         </form>
       </Card>
