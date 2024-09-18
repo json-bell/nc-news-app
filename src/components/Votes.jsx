@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../styles/Votes.css";
+import { pulseMsg } from "../utils";
 
 const defaultFunc = (inc_votes) =>
   console.log(
@@ -21,10 +22,7 @@ export function Votes({ votes, incrementVote = defaultFunc }) {
       .catch(() => {
         console.log("that didn't work...");
         setVoteCount((count) => (count -= increment));
-        setVoteError("That didn't work...");
-        setTimeout(() => {
-          setVoteError(null);
-        }, 1000);
+        pulseMsg("That didn't work...", setVoteError);
       });
   }
 

@@ -37,4 +37,9 @@ export function includeSkipNavs(setSkipNavInfo, linkIds = ["end-nav"]) {
   setSkipNavInfo(skipInfo);
 }
 
-export function pulseError(errorString, setError) {}
+export function pulseMsg(msgString, setMsg, pulseDelay = 2000) {
+  setMsg(msgString);
+  setTimeout(() => {
+    setMsg(null);
+  }, pulseDelay);
+}

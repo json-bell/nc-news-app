@@ -12,8 +12,7 @@
   display: grid;
   grid-template-areas:
     "author votes time"
-    "body body body"
-    "na na submit";
+    "body body body";
   grid-template-columns: minmax(100px, 170px) minmax(105px, 150px) minmax(
       150px,
       1fr
@@ -72,7 +71,7 @@
   grid-template-areas:
     "author time time"
     "body body body"
-    "na na submit";
+    "error error submit";
   grid-template-columns: 1fr 1.33fr 140px;
 }
 
@@ -95,4 +94,8 @@
   text-align: right;
   margin: 0;
   text-wrap: balance;
+}
+
+.comment-error {
+  grid-area: error;
 }

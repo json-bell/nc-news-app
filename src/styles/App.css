@@ -43,7 +43,6 @@ a:hover {
 }
 
 .pulse-error {
-  position: absolute;
   margin: 0.5rem;
-  animation: fadeOut 1s ease-in;
+  animation: fadeOut 2s ease-in-out;
 }
