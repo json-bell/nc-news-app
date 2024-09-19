@@ -122,3 +122,8 @@
 .comment-just-posted .first-comment {
   box-shadow: 0 0 20px var(--highlight);
 }
+
+.comment--deleted {
+  background-color: var(--deleted-background);
+  border: 3px solid var(--deleted-highlight);
+}

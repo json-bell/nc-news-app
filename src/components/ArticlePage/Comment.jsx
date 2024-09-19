@@ -13,8 +13,12 @@ export function Comment({ comment, commentIndex }) {
   const incrementVote = (inc_votes) =>
     patchCommentVotes(comment.comment_id, inc_votes);
 
+  const extraClasses = [];
+  if (commentIndex === 0) extraClasses.push("first-comment");
+  if (isCommentDeleted) extraClasses.push("comment--deleted");
+
   return (
-    <Card extraClasses={commentIndex === 0 ? ["first-comment"] : []}>
+    <Card extraClasses={extraClasses}>
       <li className="comment-item">
         <h4 className="comment-author">
           {comment.author === loggedInUser.username
