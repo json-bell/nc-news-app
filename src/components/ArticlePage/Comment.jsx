@@ -3,17 +3,18 @@ import { Votes } from "../Votes";
 import { CommentOptions } from "./CommentOptions";
 import { convertDateLong, convertDateShort } from "../../utils";
 import { UserContext } from "../../contexts/UserContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { patchCommentVotes } from "../../client";
 
 export function Comment({ comment, commentIndex }) {
   const { loggedInUser } = useContext(UserContext);
+  const [isCommentDeleted, setIsCommentDeleted] = useState(false);
 
   const incrementVote = (inc_votes) =>
     patchCommentVotes(comment.comment_id, inc_votes);
 
   return (
-    <Card extraClasses={commentIndex === 0 ? ["first-comment"] : [""]}>
+    <Card extraClasses={commentIndex === 0 ? ["first-comment"] : []}>
       <li className="comment-item">
         <h4 className="comment-author">
           {comment.author === loggedInUser.username
@@ -28,7 +29,11 @@ export function Comment({ comment, commentIndex }) {
             errorLocation={"below"}
           />
           {comment.author === loggedInUser.username ? (
-            <CommentOptions comment_id={comment.comment_id} />
+            <CommentOptions
+              comment_id={comment.comment_id}
+              setIsCommentDeleted={setIsCommentDeleted}
+              isCommentDeleted={isCommentDeleted}
+            />
           ) : null}
         </div>
         <p className="comment-body">{comment.body}</p>
