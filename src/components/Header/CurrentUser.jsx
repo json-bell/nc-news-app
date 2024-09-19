@@ -7,10 +7,11 @@ export function CurrentUser() {
   return (
     <>
       <Card extraClasses={["current-user"]}>
-        <h2 className="heading current-user-name">{loggedInUser.name}</h2>
+        <h2 className="current-user-name">{loggedInUser.name}</h2>
         <div className="avatar-container">
           <img className="current-user-avatar" src={loggedInUser.avatar_url} />
         </div>
+        <p className="current-user-username">{loggedInUser.username}</p>
       </Card>
     </>
   );

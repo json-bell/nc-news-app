@@ -26,14 +26,23 @@ nav {
 
 .current-user {
   grid-area: user;
-  display: grid;
-  grid-template-areas: "picture name";
+  display: inline-grid;
+  grid-template-areas: "picture name" "picture username";
   height: min-content;
+  width: fit-content;
+  gap: 0.5rem;
+  margin: 1rem 1rem 1rem auto;
 }
 
 .current-user-name {
   grid-area: name;
-  font-size: 1rem;
+  color: var(--card-heading);
+  font-size: 1.2rem;
+  margin: 0;
+}
+.current-user-username {
+  grid-area: username;
+  margin: 0;
 }
 
 .avatar-container {

@@ -21,7 +21,7 @@ export const fetchArticleById = (article_id) => {
 
 export const fetchCommentsByArticle = (article_id) => {
   return apiClient
-    .get(`/articles/${article_id}/comments`)
+    .get(`/articles/${article_id}/comments`, { params: { limit: 0 } })
     .then(({ data }) => {
       return data;
     })
