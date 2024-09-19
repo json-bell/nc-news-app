@@ -9,7 +9,7 @@ import { Card } from "../Card";
 import { UserContext } from "../../contexts/UserContext";
 import { CommentOptions } from "./CommentOptions";
 
-export function Comments({ articleNotFound }) {
+export function CommentList({ articleNotFound }) {
   const params = useParams();
   const article_id = Number(params.article_id);
 
