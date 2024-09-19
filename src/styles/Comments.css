@@ -25,6 +25,8 @@
   color: var(--card-heading);
   margin: 0;
   margin-right: 1rem;
+  width: fit-content(1rem);
+  display: inline;
 }
 
 .comment-time {
@@ -45,26 +47,30 @@
 .comment-form-body {
   padding: 0.4rem;
 }
+.comment-form-label {
+  display: inline;
+  width: min-content;
+}
 
 .comment-votes {
   grid-area: votes;
   text-align: center;
 }
-
+/* 
 .comment-vote-button {
   color: var(--highlight);
   background-color: var(--background);
   font-weight: 1000;
   font-size: 1rem;
   padding: 0.5rem;
-}
-
+} */
+/* 
 .vote-count {
   padding: 0.3rem;
   margin: 0.3rem;
   border: 1px solid color-mix(in srgb, var(--highlight) 50%, var(--temp2));
   border-radius: 0.4rem;
-}
+} */
 
 .comment-form {
   display: grid;
@@ -72,7 +78,7 @@
     "author time time"
     "body body body"
     "error message submit";
-  grid-template-columns: 1fr 1.33fr 140px;
+  grid-template-columns: fit-content(1fr) 1.33fr 140px;
 }
 
 .comment-form-body {
