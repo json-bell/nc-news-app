@@ -2,6 +2,7 @@ header {
   background-color: var(--header-background);
   border-radius: 0 0 1rem 1rem;
   border: var(--temp) 3px solid;
+  width: 85vw;
   max-width: 600px;
   position: relative;
   left: 0;

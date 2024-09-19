@@ -1,0 +1,14 @@
+.option-button {
+  color: var(--highlight);
+  background-color: var(--background);
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
+.options-list {
+  list-style-type: none;
+  display: flex;
+  gap: 0.5rem;
+  padding: 0;
+  margin-left: 0.5rem;
+}

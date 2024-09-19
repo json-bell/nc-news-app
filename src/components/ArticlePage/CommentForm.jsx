@@ -3,6 +3,7 @@ import { convertDateLong, pulseMsg } from "../../utils";
 import { Card } from "../Card";
 import { postComment } from "../../client";
 import { UserContext } from "../../contexts/UserContext";
+import { Link } from "react-router-dom";
 
 export function CommentForm({ article_id, setComments, setCommentJustPosted }) {
   const [commentInput, setCommentInput] = useState("");
@@ -17,7 +18,7 @@ export function CommentForm({ article_id, setComments, setCommentJustPosted }) {
       pulseMsg("Posting...", setCommentMsg);
       postComment({
         article_id,
-        username: "grumpy19",
+        username: loggedInUser.username,
         body: commentInput,
       })
         .then(({ comment }) => {
@@ -40,33 +41,40 @@ export function CommentForm({ article_id, setComments, setCommentJustPosted }) {
 
   return (
     <>
-      {/* <p>Add a new Comment:</p> */}
-      <Card>
-        <form onSubmit={handleSubmit} className="comment-form">
-          <label htmlFor="body" className="comment-form-label">
-            <h4 className="comment-form-title">
-              Comment as {loggedInUser.username}:
-            </h4>
-          </label>
-          <p className="comment-form-date">{convertDateLong(Date.now())}</p>
-          <textarea
-            id="body"
-            className="comment-form-body"
-            placeholder="Your comment..."
-            value={commentInput}
-            onChange={handleUpdate}
-          ></textarea>
-          <button type="submit" className="form-button comment-form-button">
-            Post
-          </button>
-          {commentMsg ? (
-            <em className={"comment-message pulse-message"}>{commentMsg}</em>
-          ) : null}
-          {commentError ? (
-            <em className={"comment-error pulse-message"}>{commentError}</em>
-          ) : null}
-        </form>
-      </Card>
+      {loggedInUser.username ? (
+        <Card>
+          <form onSubmit={handleSubmit} className="comment-form">
+            <label htmlFor="body" className="comment-form-label">
+              <h4 className="comment-form-title">
+                Comment as {loggedInUser.username}:
+              </h4>
+            </label>
+            <p className="comment-form-date">{convertDateLong(Date.now())}</p>
+            <textarea
+              id="body"
+              className="comment-form-body"
+              placeholder="Your comment..."
+              value={commentInput}
+              onChange={handleUpdate}
+            ></textarea>
+            <button type="submit" className="form-button comment-form-button">
+              Post
+            </button>
+            {commentMsg ? (
+              <em className={"comment-message pulse-message"}>{commentMsg}</em>
+            ) : null}
+            {commentError ? (
+              <em className={"comment-error pulse-message"}>{commentError}</em>
+            ) : null}
+          </form>
+        </Card>
+      ) : (
+        <Card>
+          <p>
+            <Link to="/login">Log in</Link> to post a comment!
+          </p>
+        </Card>
+      )}
     </>
   );
 }

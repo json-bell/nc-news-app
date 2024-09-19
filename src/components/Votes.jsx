@@ -29,6 +29,7 @@ export function Votes({ votes, incrementVote = defaultFunc }) {
   return (
     <div className="votes">
       <button
+        aria-label="up vote"
         className="vote-up vote-button"
         onClick={() => {
           handleClick(1);
@@ -38,6 +39,7 @@ export function Votes({ votes, incrementVote = defaultFunc }) {
       </button>
       <span className="vote-count">{voteCount}</span>
       <button
+        aria-label="down vote"
         className="vote-down vote-button"
         onClick={() => {
           handleClick(-1);
