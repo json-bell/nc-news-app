@@ -79,7 +79,7 @@ export function Comments({ articleNotFound }) {
                   errorLocation={"below"}
                 />
                 {comment.author === loggedInUser.username ? (
-                  <CommentOptions />
+                  <CommentOptions comment_id={comment.comment_id} />
                 ) : null}
               </div>
               <p className="comment-body">{comment.body}</p>
