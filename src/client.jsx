@@ -51,3 +51,7 @@ export const postComment = ({ article_id, body, username }) => {
 export const fetchUsers = () => {
   return apiClient.get("/users").then(({ data }) => data);
 };
+
+export const deleteComment = (comment_id) => {
+  return apiClient.delete(`/comments/${comment_id}`).catch(defaultCatch);
+};

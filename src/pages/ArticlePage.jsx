@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { includeSkipNavs } from "../utils";
 import { NavContext } from "../contexts/NavContext";
 import { Article } from "../components/ArticlePage/Article";
-import { Comments } from "../components/ArticlePage/Comments";
+import { CommentList } from "../components/ArticlePage/CommentList";
 
 export function ArticlePage() {
   const [articleNotFound, setArticleNotFound] = useState(null);
@@ -15,7 +15,7 @@ export function ArticlePage() {
   return (
     <>
       <Article setArticleNotFound={setArticleNotFound} />
-      <Comments articleNotFound={articleNotFound} />
+      <CommentList articleNotFound={articleNotFound} />
     </>
   );
 }

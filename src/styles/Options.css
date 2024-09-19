@@ -12,3 +12,12 @@
   padding: 0;
   margin-left: 0.5rem;
 }
+
+.option-button--disabled {
+  background-color: color-mix(
+    in srgb,
+    var(--background) 30%,
+    var(--card-background)
+  );
+  color: var(--temp);
+}

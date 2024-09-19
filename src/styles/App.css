@@ -19,6 +19,13 @@
   --link: #2cb67d;
   --icon-secondary: #72757e;
   --button: #7f5af0;
+  --deleted-main: #972222;
+  --deleted-highlight: color-mix(in srgb, var(--deleted-main) 40%, var(--temp));
+  --deleted-background: color-mix(
+    in srgb,
+    var(--deleted-main) 10%,
+    var(--card-background)
+  );
 }
 
 body {
