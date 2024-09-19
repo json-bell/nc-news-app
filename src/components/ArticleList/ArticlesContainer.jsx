@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ArticleList } from "./ArticleList";
-import { Pagination } from "./Pagination";
+import { Pagination } from "../Pagination";
 
 export function ArticlesContainer() {
   const [listPagination, setListPagination] = useState({ limit: 10, p: 1 });

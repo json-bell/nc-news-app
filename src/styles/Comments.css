@@ -49,7 +49,7 @@
 }
 .comment-form-label {
   display: inline;
-  width: min-content;
+  /* width: min-content; */
 }
 
 .comment-votes {

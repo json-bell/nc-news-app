@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { ArticleSummary } from "./ArticleSummary";
-import { fetchArticles } from "../client.jsx";
-import "../styles/ArticleList.css";
+import { ArticleSummary } from "./ArticleSummary.jsx";
+import { fetchArticles } from "../../client.jsx";
+import "../../styles/ArticleList.css";
 
 export function ArticleList({ listPagination, setTotalCount }) {
   const [articles, setArticles] = useState([]);
