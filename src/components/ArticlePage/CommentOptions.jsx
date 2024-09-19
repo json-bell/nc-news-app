@@ -38,7 +38,9 @@ export function CommentOptions({
             "option-button" +
             (isDeleteLoading ? " option-button--disabled" : "")
           }
-          onClick={handleDelete}
+          onClick={() => {
+            if (!isDeleteLoading) handleDelete();
+          }}
         >
           Delete
         </button>
