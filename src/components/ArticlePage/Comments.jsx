@@ -7,6 +7,7 @@ import { Votes } from "../Votes";
 import { CommentForm } from "./CommentForm";
 import { Card } from "../Card";
 import { UserContext } from "../../contexts/UserContext";
+import { CommentOptions } from "./CommentOptions";
 
 export function Comments({ articleNotFound }) {
   const params = useParams();
@@ -71,11 +72,16 @@ export function Comments({ articleNotFound }) {
               <p className="comment-time">
                 {convertDateLong(comment.created_at)}
               </p>
-              <Votes
-                votes={comment.votes}
-                incrementVote={incrementVoteByCommentId(comment.comment_id)}
-                errorLocation={"below"}
-              />
+              <div className="comment-options">
+                <Votes
+                  votes={comment.votes}
+                  incrementVote={incrementVoteByCommentId(comment.comment_id)}
+                  errorLocation={"below"}
+                />
+                {comment.author === loggedInUser.username ? (
+                  <CommentOptions />
+                ) : null}
+              </div>
               <p className="comment-body">{comment.body}</p>
             </li>
           </Card>

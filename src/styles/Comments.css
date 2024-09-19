@@ -11,12 +11,19 @@
 .comment-item {
   display: grid;
   grid-template-areas:
-    "author votes time"
-    "body body body";
-  grid-template-columns: minmax(100px, 170px) minmax(105px, 150px) minmax(
-      150px,
-      1fr
-    );
+    "author  time"
+    "body body "
+    "options options";
+  grid-template-columns: minmax(100px, 150px) minmax(100px, 400px);
+}
+
+@media only screen and (min-width: 750px) {
+  .comment-item {
+    grid-template-areas:
+      "author options time"
+      "body body body";
+    grid-template-columns: max-content minmax(105px, 250px) fit-content;
+  }
 }
 
 .comment-author,
@@ -25,7 +32,7 @@
   color: var(--card-heading);
   margin: 0;
   margin-right: 1rem;
-  width: fit-content(1rem);
+  width: fit-content;
   display: inline;
 }
 
@@ -52,9 +59,13 @@
   /* width: min-content; */
 }
 
+.comment-options {
+  grid-area: options;
+  display: flex;
+}
 .comment-votes {
-  grid-area: votes;
   text-align: center;
+  grid-area: votes;
 }
 
 .comment-form {
