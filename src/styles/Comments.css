@@ -56,21 +56,6 @@
   grid-area: votes;
   text-align: center;
 }
-/* 
-.comment-vote-button {
-  color: var(--highlight);
-  background-color: var(--background);
-  font-weight: 1000;
-  font-size: 1rem;
-  padding: 0.5rem;
-} */
-/* 
-.vote-count {
-  padding: 0.3rem;
-  margin: 0.3rem;
-  border: 1px solid color-mix(in srgb, var(--highlight) 50%, var(--temp2));
-  border-radius: 0.4rem;
-} */
 
 .comment-form {
   display: grid;
@@ -85,17 +70,17 @@
   height: 4rem;
 }
 
-.form-button {
+.comment-form-button {
   position: relative;
   left: auto;
   right: 0;
   bottom: 0;
   grid-area: submit;
   display: block;
-  background-color: var(--button);
+  /* styling in Forms.css */
 }
 
-.form-date {
+.comment-form-date {
   grid-area: time;
   text-align: right;
   margin: 0;

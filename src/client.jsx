@@ -49,5 +49,5 @@ export const postComment = ({ article_id, body, username }) => {
 };
 
 export const fetchUsers = () => {
-  return apiClient.get("/users").then(({ data }) => console.log(data));
+  return apiClient.get("/users").then(({ data }) => data);
 };

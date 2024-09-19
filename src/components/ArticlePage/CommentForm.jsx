@@ -44,7 +44,7 @@ export function CommentForm({ article_id, setComments, setCommentJustPosted }) {
           <label htmlFor="body" className="comment-form-label">
             <h4 className="comment-form-title">Comment as USERNAME:</h4>
           </label>
-          <p className="form-date">{convertDateLong(Date.now())}</p>
+          <p className="comment-form-date">{convertDateLong(Date.now())}</p>
           <textarea
             id="body"
             className="comment-form-body"
@@ -52,7 +52,7 @@ export function CommentForm({ article_id, setComments, setCommentJustPosted }) {
             value={commentInput}
             onChange={handleUpdate}
           ></textarea>
-          <button type="submit" className="form-button">
+          <button type="submit" className="form-button comment-form-button">
             Post
           </button>
           {commentMsg ? (

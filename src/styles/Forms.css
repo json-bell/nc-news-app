@@ -39,3 +39,7 @@
 .pagination-recap {
   margin: 0;
 }
+
+.form-button {
+  background-color: var(--button);
+}
