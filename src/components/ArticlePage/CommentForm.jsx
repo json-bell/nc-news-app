@@ -1,12 +1,15 @@
-import { useState } from "react";
-import { convertDateLong, pulseMsg } from "../utils";
-import { Card } from "./Card";
-import { postComment } from "../client";
+import { useContext, useState } from "react";
+import { convertDateLong, pulseMsg } from "../../utils";
+import { Card } from "../Card";
+import { postComment } from "../../client";
+import { UserContext } from "../../contexts/UserContext";
 
 export function CommentForm({ article_id, setComments, setCommentJustPosted }) {
   const [commentInput, setCommentInput] = useState("");
   const [commentMsg, setCommentMsg] = useState(null);
   const [commentError, setCommentError] = useState(null);
+
+  const { loggedInUser } = useContext(UserContext);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -26,26 +29,26 @@ export function CommentForm({ article_id, setComments, setCommentJustPosted }) {
           }, 400);
         })
         .catch((err) => {
-          console.log(err);
           pulseMsg("That didn't work...", setCommentError);
         });
     } else pulseMsg("Can't post empty comment...", setCommentError);
   }
 
   function handleUpdate(event) {
-    console.log(event.target.value);
     setCommentInput(event.target.value);
   }
 
   return (
     <>
-      <p>Add a new Comment:</p>
+      {/* <p>Add a new Comment:</p> */}
       <Card>
         <form onSubmit={handleSubmit} className="comment-form">
           <label htmlFor="body" className="comment-form-label">
-            <h4 className="comment-form-title">Post a comment:</h4>
+            <h4 className="comment-form-title">
+              Comment as {loggedInUser.username}:
+            </h4>
           </label>
-          <p className="form-date">{convertDateLong(Date.now())}</p>
+          <p className="comment-form-date">{convertDateLong(Date.now())}</p>
           <textarea
             id="body"
             className="comment-form-body"
@@ -53,7 +56,7 @@ export function CommentForm({ article_id, setComments, setCommentJustPosted }) {
             value={commentInput}
             onChange={handleUpdate}
           ></textarea>
-          <button type="submit" className="form-button">
+          <button type="submit" className="form-button comment-form-button">
             Post
           </button>
           {commentMsg ? (

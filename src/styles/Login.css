@@ -1,0 +1,33 @@
+.login-form {
+  display: grid;
+  grid-template-areas:
+    "label na"
+    "input input"
+    "error button";
+  margin: 0 2rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+.label-username {
+  grid-area: label;
+  margin-right: 0.5rem;
+  text-align: left;
+}
+.input-username {
+  grid-area: input;
+}
+
+.login-button {
+  display: block;
+  margin: 1rem 1rem 0 auto;
+  grid-area: button;
+}
+
+.login-error {
+  grid-area: error;
+  margin: 0.5rem 0 0 0;
+  overflow: visible;
+  text-wrap: nowrap;
+  width: 110px;
+  text-align: left;
+}

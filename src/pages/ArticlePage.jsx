@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
-import { Article } from "../components/Article";
-import { Comments } from "../components/Comments";
 import { includeSkipNavs } from "../utils";
 import { NavContext } from "../contexts/NavContext";
+import { Article } from "../components/ArticlePage/Article";
+import { Comments } from "../components/ArticlePage/Comments";
 
 export function ArticlePage() {
   const [articleNotFound, setArticleNotFound] = useState(null);

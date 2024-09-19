@@ -1,6 +1,6 @@
 .pagination-button {
-  margin: 0.5rem 1rem;
-  padding: 1rem;
+  margin: 0.7rem 1rem 0.5rem 1rem;
+  padding: 0.5rem 0.7rem;
   border: var(--temp) 1px solid;
 }
 
@@ -38,4 +38,8 @@
 
 .pagination-recap {
   margin: 0;
+}
+
+.form-button {
+  background-color: var(--button);
 }

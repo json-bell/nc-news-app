@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
-import { ArticlesContainer } from "../components/ArticlesContainer";
 import { NavContext } from "../contexts/NavContext";
 import { includeSkipNavs } from "../utils";
+import { ArticlesContainer } from "../components/ArticleList/ArticlesContainer";
 
 export function Home() {
   const { setSkipNavInfo } = useContext(NavContext);

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { convertDateLong } from "../utils";
-import "../styles/Article.css";
-import { ErrorMsg } from "./ErrorMsg";
-import { fetchArticleById, patchArticleVotes } from "../client";
-import { Votes } from "./Votes";
-import { Card } from "./Card";
+import { convertDateLong } from "../../utils";
+import "../../styles/Article.css";
+import { ErrorMsg } from "../ErrorMsg";
+import { fetchArticleById, patchArticleVotes } from "../../client";
+import { Votes } from "../Votes";
+import { Card } from "../Card";
 
 export function Article({ setArticleNotFound }) {
   const params = useParams();

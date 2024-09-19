@@ -21,9 +21,8 @@ export const fetchArticleById = (article_id) => {
 
 export const fetchCommentsByArticle = (article_id) => {
   return apiClient
-    .get(`/articles/${article_id}/comments`)
+    .get(`/articles/${article_id}/comments`, { params: { limit: 0 } })
     .then(({ data }) => {
-      console.log(data);
       return data;
     })
     .catch((err) => console.log("comments err", err));
@@ -45,7 +44,10 @@ export const postComment = ({ article_id, body, username }) => {
   return apiClient
     .post(`articles/${article_id}/comments`, payload)
     .then(({ data }) => {
-      console.log("new Comment:", data);
       return data;
     });
+};
+
+export const fetchUsers = () => {
+  return apiClient.get("/users").then(({ data }) => data);
 };

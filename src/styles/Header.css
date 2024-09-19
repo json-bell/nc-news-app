@@ -1,0 +1,74 @@
+header {
+  background-color: var(--header-background);
+  border-radius: 0 0 1rem 1rem;
+  border: var(--temp) 3px solid;
+  max-width: 600px;
+  position: relative;
+  left: 0;
+  top: 0;
+  display: grid;
+  margin: 0 auto 2rem auto;
+  box-shadow: 5px 5px 20px
+    color-mix(in srgb, var(--header-background) 80%, var(--highlight));
+}
+
+header {
+  grid-template-areas: "title" " user" "nav";
+}
+.current-user {
+  margin: 1rem auto;
+}
+h1 {
+  width: fit-content;
+  margin: 1rem auto 0 auto;
+}
+
+@media only screen and (min-width: 650px) {
+  header {
+    grid-template-areas: "title user" "nav user";
+  }
+  h1 {
+    margin: 1rem 1rem 0 1rem;
+    width: fit-content;
+  }
+}
+
+h1 {
+  grid-area: title;
+  text-align: left;
+}
+
+nav {
+  grid-area: nav;
+}
+
+.current-user {
+  grid-area: user;
+  display: inline-grid;
+  grid-template-areas: "picture name" "picture username";
+  height: min-content;
+  width: fit-content;
+  gap: 0.5rem;
+}
+
+.current-user-name {
+  grid-area: name;
+  color: var(--card-heading);
+  font-size: 1.2rem;
+  margin: 0;
+}
+.current-user-username {
+  grid-area: username;
+  margin: 0;
+}
+
+.avatar-container {
+  grid-area: picture;
+  height: 100px;
+  width: 100px;
+}
+
+.current-user-avatar {
+  height: 100%;
+  width: auto;
+}

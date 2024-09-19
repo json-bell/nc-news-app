@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
-import { convertDateShort } from "../utils";
-import { Card } from "./Card";
+import { convertDateShort } from "../../utils";
+import { Card } from "../Card";
 
 export function ArticleSummary({ article }) {
   const navigate = useNavigate();

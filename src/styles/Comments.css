@@ -25,6 +25,8 @@
   color: var(--card-heading);
   margin: 0;
   margin-right: 1rem;
+  width: fit-content(1rem);
+  display: inline;
 }
 
 .comment-time {
@@ -45,51 +47,42 @@
 .comment-form-body {
   padding: 0.4rem;
 }
+.comment-form-label {
+  display: inline;
+  /* width: min-content; */
+}
 
 .comment-votes {
   grid-area: votes;
   text-align: center;
 }
 
-.comment-vote-button {
-  color: var(--highlight);
-  background-color: var(--background);
-  font-weight: 1000;
-  font-size: 1rem;
-  padding: 0.5rem;
-}
-
-.vote-count {
-  padding: 0.3rem;
-  margin: 0.3rem;
-  border: 1px solid color-mix(in srgb, var(--highlight) 50%, var(--temp2));
-  border-radius: 0.4rem;
-}
-
 .comment-form {
   display: grid;
   grid-template-areas:
-    "author time time"
-    "body body body"
-    "error message submit";
-  grid-template-columns: 1fr 1.33fr 140px;
+    "author time"
+    "body body"
+    "message submit";
+  grid-template-columns: 1fr 2fr;
 }
 
 .comment-form-body {
   height: 4rem;
 }
 
-.form-button {
+.comment-form-button {
   position: relative;
   left: auto;
   right: 0;
   bottom: 0;
   grid-area: submit;
   display: block;
-  background-color: var(--button);
+  /* styling in Forms.css */
+  width: min-content;
+  margin: 0 0 0 auto;
 }
 
-.form-date {
+.comment-form-date {
   grid-area: time;
   text-align: right;
   margin: 0;
@@ -97,13 +90,15 @@
 }
 
 .comment-error {
-  grid-area: error;
+  grid-area: message;
   overflow: visible;
   text-wrap: nowrap;
+  width: 1px;
 }
 .comment-message {
   grid-area: message;
-  text-align: right;
+  overflow: visible;
+  text-wrap: nowrap;
 }
 
 .first-comment {
@@ -111,5 +106,5 @@
 }
 
 .comment-just-posted .first-comment {
-  box-shadow: 5px 10px 20px var(--highlight);
+  box-shadow: 0 0 20px var(--highlight);
 }
