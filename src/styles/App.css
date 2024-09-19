@@ -14,6 +14,7 @@
   --card-background: #16161a;
   --card-paragraph: #94a1b2;
   --card-heading: #fffffe;
+  --header-background: color-mix(in srgb, #7f5af0 20%, rgb(36, 36, 36));
   --highlight: #2cb67d;
   --link: #2cb67d;
   --icon-secondary: #72757e;

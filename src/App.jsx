@@ -3,6 +3,7 @@ import "./styles/App.css";
 import { Home } from "./pages/Home";
 import { ArticlePage } from "./pages/ArticlePage";
 import { Header } from "./components/Header/Header";
+import { Login } from "./pages/Login";
 
 function App() {
   // const { setSkipNavInfo } = useContext(NavContext);
@@ -18,6 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/article/:article_id" element={<ArticlePage />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </>
   );
