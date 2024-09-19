@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { fetchCommentsByArticle, patchCommentVotes } from "../../client";
 import { useParams } from "react-router-dom";
 import "../../styles/Comments.css";
@@ -6,6 +6,7 @@ import { convertDateLong } from "../../utils";
 import { Votes } from "../Votes";
 import { CommentForm } from "./CommentForm";
 import { Card } from "../Card";
+import { UserContext } from "../../contexts/UserContext";
 
 export function Comments({ articleNotFound }) {
   const params = useParams();
@@ -14,6 +15,8 @@ export function Comments({ articleNotFound }) {
   const [comments, setComments] = useState([]);
   const [isCommentsLoading, setIsCommentsLoading] = useState(true);
   const [commentJustPosted, setCommentJustPosted] = useState(false);
+
+  const { loggedInUser } = useContext(UserContext);
 
   function incrementVoteByCommentId(comment_id) {
     return (inc_votes) => patchCommentVotes(comment_id, inc_votes);
@@ -41,7 +44,8 @@ export function Comments({ articleNotFound }) {
       <h3 id="comments">
         {comments.length === 0
           ? "There are no comments yet... Be the first!"
-          : "Here are the comments"}
+          : `Comments (${comments.length})`}
+        {/* MAKE THIS a total_count in the future for pagination */}
       </h3>
       <CommentForm
         article_id={article_id}
@@ -59,7 +63,11 @@ export function Comments({ articleNotFound }) {
             extraClasses={index === 0 ? ["first-comment"] : [""]}
           >
             <li className="comment-item">
-              <h4 className="comment-author">{comment.author} says</h4>
+              <h4 className="comment-author">
+                {comment.author === loggedInUser.username
+                  ? "You said"
+                  : `${comment.author} said`}
+              </h4>
               <p className="comment-time">
                 {convertDateLong(comment.created_at)}
               </p>
