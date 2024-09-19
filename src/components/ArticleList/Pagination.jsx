@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../styles/Forms.css";
+import "../../styles/Forms.css";
 
 export function Pagination({ setListPagination, listPagination, totalCount }) {
   const [pageInput, setPageInput] = useState("1");

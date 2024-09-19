@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { fetchCommentsByArticle, patchCommentVotes } from "../client";
+import { fetchCommentsByArticle, patchCommentVotes } from "../../client";
 import { useParams } from "react-router-dom";
-import "../styles/Comments.css";
-import { convertDateLong } from "../utils";
-import { Votes } from "./Votes";
+import "../../styles/Comments.css";
+import { convertDateLong } from "../../utils";
+import { Votes } from "../Votes";
 import { CommentForm } from "./CommentForm";
-import { Card } from "./Card";
+import { Card } from "../Card";
 
 export function Comments({ articleNotFound }) {
   const params = useParams();

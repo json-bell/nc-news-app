@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import "../styles/Nav.css";
-import "../styles/SkipNav.css";
+import "../../styles/Nav.css";
+import "../../styles/SkipNav.css";
 import { SkipNav } from "./SkipNav";
 
 export function Nav() {

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { NavContext } from "../contexts/NavContext";
+import { NavContext } from "../../contexts/NavContext";
 
 export function SkipNav() {
   const { skipNavInfo } = useContext(NavContext);

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { convertDateLong, pulseMsg } from "../utils";
-import { Card } from "./Card";
-import { postComment } from "../client";
+import { convertDateLong, pulseMsg } from "../../utils";
+import { Card } from "../Card";
+import { postComment } from "../../client";
 
 export function CommentForm({ article_id, setComments, setCommentJustPosted }) {
   const [commentInput, setCommentInput] = useState("");
