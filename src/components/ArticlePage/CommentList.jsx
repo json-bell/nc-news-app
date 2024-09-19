@@ -1,13 +1,9 @@
-import { useContext, useEffect, useState } from "react";
-import { fetchCommentsByArticle, patchCommentVotes } from "../../client";
+import { useEffect, useState } from "react";
+import { fetchCommentsByArticle } from "../../client";
 import { useParams } from "react-router-dom";
 import "../../styles/Comments.css";
-import { convertDateLong } from "../../utils";
-import { Votes } from "../Votes";
 import { CommentForm } from "./CommentForm";
-import { Card } from "../Card";
-import { UserContext } from "../../contexts/UserContext";
-import { CommentOptions } from "./CommentOptions";
+import { Comment } from "./Comment";
 
 export function CommentList({ articleNotFound }) {
   const params = useParams();
@@ -16,12 +12,6 @@ export function CommentList({ articleNotFound }) {
   const [comments, setComments] = useState([]);
   const [isCommentsLoading, setIsCommentsLoading] = useState(true);
   const [commentJustPosted, setCommentJustPosted] = useState(false);
-
-  const { loggedInUser } = useContext(UserContext);
-
-  function incrementVoteByCommentId(comment_id) {
-    return (inc_votes) => patchCommentVotes(comment_id, inc_votes);
-  }
 
   useEffect(() => {
     setIsCommentsLoading(true);
@@ -59,32 +49,11 @@ export function CommentList({ articleNotFound }) {
         }
       >
         {comments.map((comment, index) => (
-          <Card
+          <Comment
+            comment={comment}
+            commentIndex={index}
             key={comment.comment_id}
-            extraClasses={index === 0 ? ["first-comment"] : [""]}
-          >
-            <li className="comment-item">
-              <h4 className="comment-author">
-                {comment.author === loggedInUser.username
-                  ? "You said"
-                  : `${comment.author} said`}
-              </h4>
-              <p className="comment-time">
-                {convertDateLong(comment.created_at)}
-              </p>
-              <div className="comment-options">
-                <Votes
-                  votes={comment.votes}
-                  incrementVote={incrementVoteByCommentId(comment.comment_id)}
-                  errorLocation={"below"}
-                />
-                {comment.author === loggedInUser.username ? (
-                  <CommentOptions comment_id={comment.comment_id} />
-                ) : null}
-              </div>
-              <p className="comment-body">{comment.body}</p>
-            </li>
-          </Card>
+          />
         ))}
       </ul>
     </>

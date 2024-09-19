@@ -53,11 +53,5 @@ export const fetchUsers = () => {
 };
 
 export const deleteComment = (comment_id) => {
-  return apiClient
-    .delete(`/comments/${comment_id}`)
-    .then((data) => {
-      console.log("successfully deleted");
-      console.log(data);
-    })
-    .catch(defaultCatch);
+  return apiClient.delete(`/comments/${comment_id}`).catch(defaultCatch);
 };
