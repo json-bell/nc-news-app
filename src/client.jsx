@@ -23,7 +23,6 @@ export const fetchCommentsByArticle = (article_id) => {
   return apiClient
     .get(`/articles/${article_id}/comments`)
     .then(({ data }) => {
-      console.log(data);
       return data;
     })
     .catch((err) => console.log("comments err", err));
@@ -45,7 +44,6 @@ export const postComment = ({ article_id, body, username }) => {
   return apiClient
     .post(`articles/${article_id}/comments`, payload)
     .then(({ data }) => {
-      console.log("new Comment:", data);
       return data;
     });
 };

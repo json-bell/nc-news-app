@@ -26,14 +26,13 @@ export function CommentForm({ article_id, setComments, setCommentJustPosted }) {
           }, 400);
         })
         .catch((err) => {
-          console.log(err);
+          // console.log(err);
           pulseMsg("That didn't work...", setCommentError);
         });
     } else pulseMsg("Can't post empty comment...", setCommentError);
   }
 
   function handleUpdate(event) {
-    console.log(event.target.value);
     setCommentInput(event.target.value);
   }
 
