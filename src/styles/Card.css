@@ -31,3 +31,27 @@ li:focus .card.focusable {
 li:focus .card {
   outline: auto;
 }
+
+/* clickable cards */
+.card {
+  position: relative;
+}
+
+.card .overlayed-link {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.card-content {
+  position: relative;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.card-content a,
+.card-content button {
+  pointer-events: all;
+}

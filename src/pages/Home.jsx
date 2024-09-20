@@ -11,7 +11,7 @@ export function Home() {
 
   return (
     <>
-      <h1 style={{ margin: 0 }}>Welcome! Here's the home MODIFY</h1>
+      <h1>Welcome! Here's the home MODIFY</h1>
       <ArticlesContainer />
     </>
   );
