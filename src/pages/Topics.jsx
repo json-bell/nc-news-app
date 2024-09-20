@@ -18,7 +18,6 @@ export function Topics() {
     setIsTopicsLoading(true);
     fetchTopics().then(({ topics }) => {
       setTopics(topics);
-      console.log(topics);
       setIsTopicsLoading(false);
     });
   }, []);

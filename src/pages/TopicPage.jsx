@@ -13,7 +13,6 @@ export function TopicPage() {
   useEffect(() => {
     setIsTopicLoading(true);
     fetchTopic(topic).then(({ topic }) => {
-      console.log(topic);
       setTopicDescription(topic.description);
       setIsTopicLoading(false);
     });
