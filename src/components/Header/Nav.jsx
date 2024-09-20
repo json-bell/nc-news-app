@@ -12,7 +12,7 @@ export function Nav() {
   const navLinks = [
     { link: "/", name: "Home" },
     { link: "/login", name: loginNavString },
-    { link: "/topics/cooking", name: "Cooking!!" },
+    { link: "/topics/", name: "Topics" },
   ];
   return (
     <nav>

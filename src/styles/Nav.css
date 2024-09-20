@@ -2,11 +2,14 @@
   border: 2px var(--temp) solid;
   list-style-type: none;
   display: inline-flex;
+  flex-wrap: wrap;
   border-radius: 0 1rem 0 1rem;
   width: fit-content;
   padding: 0 1rem;
+  margin: 1rem;
 }
 
 .nav-item {
   padding: 0 1rem;
+  width: max-content;
 }
