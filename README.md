@@ -20,6 +20,8 @@ Ran with vite, node.js and browser.
 
 (Backend: PostgreSQL and Express)
 
+Main color scheme: https://www.happyhues.co/palettes/4
+
 ## How to run locally
 
 Minimal node version: `v22.4.0`

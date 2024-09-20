@@ -20,7 +20,7 @@
   --link: #2cb67d;
   --icon-secondary: #72757e;
   --button: #7f5af0;
-  --button2: color-mix(in srgb, #7f5af0 20%, rgb(36, 36, 36));
+  --button2: color-mix(in srgb, #7f5af0 50%, rgb(36, 36, 36));
   --deleted-main: #972222;
   --deleted-highlight: color-mix(in srgb, var(--deleted-main) 40%, var(--temp));
   --deleted-background: color-mix(
