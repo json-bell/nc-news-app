@@ -42,7 +42,7 @@
     color-mix(in srgb, var(--highlight) 50%, var(--background));
 }
 
-.card-content {
+.card-content.includes-link {
   position: relative;
   pointer-events: none;
   z-index: 1;
@@ -50,6 +50,6 @@
 
 .card-content a,
 .card-content button,
-.card-content input {
+.card-content form {
   pointer-events: all;
 }

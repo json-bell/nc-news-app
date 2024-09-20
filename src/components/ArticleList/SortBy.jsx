@@ -40,6 +40,7 @@ export function SortBy({ sortQueries, setSortQueries }) {
     const sortObj = Object.fromEntries(
       newString.split(",").map((pair) => pair.split(":"))
     );
+    votes;
     setSortQueries(sortObj);
     setSearchParams((params) => ({
       ...params,

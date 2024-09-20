@@ -8,7 +8,9 @@ export function Card({ children, extraClasses, link }) {
       {link ? (
         <Link to={link} className="overlayed-link" aria-label={link}></Link>
       ) : null}
-      <div className="card-content">{children}</div>
+      <div className={"card-content " + (link ? "includes-link" : 0)}>
+        {children}
+      </div>
     </div>
   );
 }

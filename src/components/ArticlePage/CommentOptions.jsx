@@ -23,15 +23,29 @@ export function CommentOptions({
 
   return (
     <ul className="options-list">
-      <li>
-        <button
-          className={
-            "option-button" + (isEditLoading ? " option-button--disabled" : "")
-          }
-        >
-          Edit
-        </button>
-      </li>
+      {!isCommentDeleted ? (
+        <li>
+          <button
+            className={
+              "option-button" +
+              (isEditLoading ? " option-button--disabled" : "")
+            }
+          >
+            Edit
+          </button>
+        </li>
+      ) : (
+        <li>
+          <button
+            className={
+              "option-button" +
+              (isRestoreLoading ? " option-button--disabled" : "")
+            }
+          >
+            Restore
+          </button>
+        </li>
+      )}
       <li>
         <button
           className={
@@ -45,18 +59,6 @@ export function CommentOptions({
           Delete
         </button>
       </li>
-      {isCommentDeleted ? (
-        <li>
-          <button
-            className={
-              "option-button" +
-              (isRestoreLoading ? " option-button--disabled" : "")
-            }
-          >
-            Restore
-          </button>
-        </li>
-      ) : null}
     </ul>
   );
 }
