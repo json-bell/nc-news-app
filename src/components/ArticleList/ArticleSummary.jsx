@@ -10,10 +10,7 @@ export function ArticleSummary({ article }) {
 
   return (
     <li className="article-summary">
-      <Card
-        extraClasses={["focusable"]}
-        link={`/article/${article.article_id}`}
-      >
+      <Card link={`/article/${article.article_id}`}>
         <h3 className="heading">{article.title}</h3>
         <img src={article.article_img_url} alt="" />
         <p>
@@ -26,7 +23,7 @@ export function ArticleSummary({ article }) {
           {article.votes} Votes & {article.comment_count} Comments
         </p>
         <p>
-          Written by {article.author} on {convertDateShort(article.created_at)}
+          By {article.author}, {convertDateShort(article.created_at)}
         </p>
       </Card>
     </li>
