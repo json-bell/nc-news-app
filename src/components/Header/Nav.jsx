@@ -11,8 +11,8 @@ export function Nav() {
 
   const navLinks = [
     { link: "/", name: "Home" },
-    { link: "/login", name: loginNavString },
     { link: "/topics/", name: "Topics" },
+    { link: "/login", name: loginNavString },
   ];
   return (
     <nav>
