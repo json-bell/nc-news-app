@@ -6,7 +6,6 @@ export function SkipNav() {
 
   return (
     <>
-      {" "}
       <ul className="skip-nav-menu">
         {skipNavInfo.map(({ id, contentName }) => (
           <li key={id}>

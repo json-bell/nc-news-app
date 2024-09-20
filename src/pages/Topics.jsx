@@ -8,7 +8,7 @@ import { Card } from "../components/Card";
 export function Topics() {
   const { setSkipNavInfo } = useContext(NavContext);
   useEffect(() => {
-    includeSkipNavs(setSkipNavInfo, ["end-nav"]);
+    includeSkipNavs(setSkipNavInfo, ["content"]);
   }, []);
 
   const [topics, setTopics] = useState([]);
@@ -36,7 +36,7 @@ export function Topics() {
 
   return (
     <>
-      <h2>Topics</h2>
+      <h2 id="content">Topics</h2>
       {isTopicsLoading ? (
         <p>Loading topics...</p>
       ) : (

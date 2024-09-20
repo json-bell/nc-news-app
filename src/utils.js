@@ -21,7 +21,8 @@ export function convertDateShort(isoDate) {
 
 export function includeSkipNavs(setSkipNavInfo, linkIds = ["end-nav"]) {
   const skipableContent = [
-    { id: "end-nav", contentName: "Content" },
+    { id: "end-nav", contentName: "End of Navigation" },
+    { id: "content", contentName: "Content" },
     { id: "articles", contentName: "Articles" },
     { id: "article", contentName: "Article" },
     { id: "pagination", contentName: "Pagination" },

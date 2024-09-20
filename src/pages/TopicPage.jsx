@@ -1,10 +1,17 @@
 import { Link, useParams } from "react-router-dom";
 import { ArticlesContainer } from "../components/ArticleList/ArticlesContainer";
 import { fetchTopic } from "../client";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ErrorMsg } from "../components/ErrorMsg";
+import { NavContext } from "../contexts/NavContext";
+import { includeSkipNavs } from "../utils";
 
 export function TopicPage() {
+  const { setSkipNavInfo } = useContext(NavContext);
+  useEffect(() => {
+    includeSkipNavs(setSkipNavInfo, ["article", "comments"]);
+  }, []);
+
   const params = useParams();
   const topic = params.slug;
 
