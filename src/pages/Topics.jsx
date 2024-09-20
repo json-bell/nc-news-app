@@ -8,7 +8,7 @@ import { Card } from "../components/Card";
 export function Topics() {
   const { setSkipNavInfo } = useContext(NavContext);
   useEffect(() => {
-    includeSkipNavs(setSkipNavInfo, ["articles", "pagination"]);
+    includeSkipNavs(setSkipNavInfo, ["end-nav"]);
   }, []);
 
   const [topics, setTopics] = useState([]);

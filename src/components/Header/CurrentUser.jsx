@@ -15,6 +15,11 @@ export function CurrentUser() {
           <img
             className="current-user-avatar"
             src={loggedInUser.avatar_url || smileyURL}
+            alt={
+              loggedInUser.avatar_url
+                ? "A user-chosen profile picture"
+                : "The default profile picture, a drawn smiley face"
+            }
           />
         </div>
         {loggedInUser.username ? (

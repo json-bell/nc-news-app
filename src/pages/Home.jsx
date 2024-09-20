@@ -11,7 +11,10 @@ export function Home() {
 
   return (
     <>
-      <h1>Welcome! Here's the home MODIFY</h1>
+      <h1 className="title">
+        Welcome! <br />
+        See the most recent articles
+      </h1>
       <ArticlesContainer />
     </>
   );

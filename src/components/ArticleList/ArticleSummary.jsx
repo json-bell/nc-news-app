@@ -11,7 +11,7 @@ export function ArticleSummary({ article }) {
   return (
     <li className="article-summary">
       <Card link={`/article/${article.article_id}`}>
-        <h3 className="heading">{article.title}</h3>
+        <h2 className="heading">{article.title}</h2>
         <img src={article.article_img_url} alt="" />
         <p>
           Topic:{" "}

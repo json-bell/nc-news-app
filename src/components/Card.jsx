@@ -5,7 +5,9 @@ export function Card({ children, extraClasses, link }) {
   const classString = extraClasses ? extraClasses.join(" ") : "";
   return (
     <div className={"card " + classString}>
-      {link ? <Link to={link} className="overlayed-link"></Link> : null}
+      {link ? (
+        <Link to={link} className="overlayed-link" aria-label={link}></Link>
+      ) : null}
       <div className="card-content">{children}</div>
     </div>
   );
