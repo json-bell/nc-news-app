@@ -62,7 +62,7 @@ export function LoginForm() {
           </label>
           <input
             id="username"
-            placeholder="username..."
+            placeholder="username... e.g. cooljmessy"
             className={"input-username " + (error ? "INVALIDINPUT" : "")}
             value={inputs.username}
             onChange={handleUpdate}
