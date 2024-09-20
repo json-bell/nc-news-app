@@ -22,6 +22,9 @@ export function Topics() {
     });
   }, []);
 
+  const [topicCounts, setTopicCounts] = useState({});
+  useEffect(() => {}, [topics]);
+
   return (
     <>
       <h2>Topics</h2>

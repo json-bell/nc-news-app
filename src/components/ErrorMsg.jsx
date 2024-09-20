@@ -2,7 +2,7 @@ import "../styles/Error.css";
 import { Card } from "./Card";
 
 export function ErrorMsg({ error }) {
-  console.log(error, "<-- error in ErrorMsg");
+  // console.log(error, "<-- error in ErrorMsg");
   return (
     <Card>
       <div className="error-container">
