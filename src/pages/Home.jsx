@@ -11,7 +11,7 @@ export function Home() {
 
   return (
     <>
-      <h1 className="title">Welcome!</h1>
+      <h2 className="title">Welcome!</h2>
       <ArticlesContainer />
     </>
   );
