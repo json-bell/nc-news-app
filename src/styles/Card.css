@@ -22,12 +22,33 @@
   margin: 0 auto;
 }
 
-li:hover .card.focusable,
-li:focus .card.focusable {
+/* clickable cards */
+.card {
+  position: relative;
+}
+
+.card .overlayed-link {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  border-radius: 0 1rem 0 1rem;
+}
+
+.card .overlayed-link:hover,
+.card .overlayed-link:focus {
   box-shadow: 5px 10px 20px
     color-mix(in srgb, var(--highlight) 50%, var(--background));
 }
 
-li:focus .card {
-  outline: auto;
+.card-content {
+  position: relative;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.card-content a,
+.card-content button {
+  pointer-events: all;
 }
