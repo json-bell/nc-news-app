@@ -15,7 +15,6 @@ export function ArticleList({ listPagination, setTotalCount, topic }) {
         setArticles(articles);
         setTotalCount(total_count);
         setIsArticlesLoading(false);
-        console.log(articles);
       }
     );
   }, [listPagination]);

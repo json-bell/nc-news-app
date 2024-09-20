@@ -49,6 +49,7 @@
 }
 
 .card-content a,
-.card-content button {
+.card-content button,
+.card-content input {
   pointer-events: all;
 }
