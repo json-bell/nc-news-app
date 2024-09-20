@@ -9,15 +9,11 @@ export function ArticleSummary({ article }) {
   }
 
   return (
-    <li
-      className="article-summary"
-      onClick={() => handleArticleClick(article.article_id)}
-      onKeyDown={({ key }) => {
-        if (key === "Enter") handleArticleClick(article.article_id);
-      }}
-      tabIndex={0}
-    >
-      <Card extraClasses={["focusable"]}>
+    <li className="article-summary">
+      <Card
+        extraClasses={["focusable"]}
+        link={`/article/${article.article_id}`}
+      >
         <h3 className="heading">{article.title}</h3>
         <img src={article.article_img_url} alt="" />
         <p>
