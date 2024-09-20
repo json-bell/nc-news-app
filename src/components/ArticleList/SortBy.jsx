@@ -25,7 +25,6 @@ export function SortBy({ sortQueries, setSortQueries }) {
   ];
 
   let [searchParams, setSearchParams] = useSearchParams();
-  console.log(searchParams.sort_by, "params");
   const [sortString, setSortString] = useState(
     `sort_by:${searchParams.get("sort_by") || "created_at"},order:${
       searchParams.get("order") || "desc"
