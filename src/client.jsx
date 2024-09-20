@@ -61,3 +61,7 @@ export const fetchTopic = (topic) => {
     topic: data.topics.find(({ slug }) => slug === topic),
   }));
 };
+
+export const fetchTopics = () => {
+  return apiClient.get("/topics").then(({ data }) => data);
+};

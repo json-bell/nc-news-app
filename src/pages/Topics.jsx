@@ -1,8 +1,9 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import "../styles/Login.css";
 import { includeSkipNavs } from "../utils";
 import { NavContext } from "../contexts/NavContext";
-import { ArticlesContainer } from "../components/ArticleList/ArticlesContainer";
+import { fetchTopics } from "../client";
+import { Card } from "../components/Card";
 
 export function Topics() {
   const { setSkipNavInfo } = useContext(NavContext);
@@ -10,10 +11,31 @@ export function Topics() {
     includeSkipNavs(setSkipNavInfo, ["articles", "pagination"]);
   }, []);
 
+  const [topics, setTopics] = useState([]);
+  const [isTopicsLoading, setIsTopicsLoading] = useState(true);
+
+  useEffect(() => {
+    setIsTopicsLoading(true);
+    fetchTopics().then(({ topics }) => {
+      setTopics(topics);
+      console.log(topics);
+      setIsTopicsLoading(false);
+    });
+  }, []);
+
   return (
     <>
       <h2>Topics</h2>
-      <ArticlesContainer />
+      {isTopicsLoading ? (
+        <p>Loading topics...</p>
+      ) : (
+        topics.map((topic) => (
+          <Card key={topic.slug} link={`/topics/${topic.slug}`}>
+            <h3 className="heading">{topic.slug}</h3>
+            <p>{topic.description}</p>
+          </Card>
+        ))
+      )}
     </>
   );
 }
