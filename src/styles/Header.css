@@ -70,9 +70,13 @@ nav {
   grid-area: picture;
   height: 100px;
   width: 100px;
+  place-content: center;
+  background: var(--temp);
+  border-radius: 1rem;
 }
 
 .current-user-avatar {
-  height: 100%;
-  width: auto;
+  max-height: 90%;
+  max-width: 90%;
+  object-fit: contain;
 }

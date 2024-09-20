@@ -8,8 +8,8 @@ export function CommentOptions({
   setIsCommentDeleted,
 }) {
   const [isDeleteLoading, setIsDeleteLoading] = useState(false);
-  const [isEditLoading, setIsEditLoading] = useState(false);
-  const [isRestoreLoading, setIsRestoreLoading] = useState(false);
+  const [isEditLoading, setIsEditLoading] = useState(true);
+  const [isRestoreLoading, setIsRestoreLoading] = useState(true);
 
   function handleDelete(event) {
     console.log("deleting comment", comment_id);

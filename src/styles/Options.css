@@ -20,4 +20,5 @@
     var(--card-background)
   );
   color: var(--temp);
+  cursor: not-allowed;
 }
