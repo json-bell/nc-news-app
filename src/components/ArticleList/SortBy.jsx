@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 export function SortBy({ sortQueries, setSortQueries }) {
   const fields = [
@@ -23,17 +24,27 @@ export function SortBy({ sortQueries, setSortQueries }) {
     { name: "ascending", ref: "asc" },
   ];
 
-  const [sortString, setSortString] = useState("sort_by:created_at,order:desc");
+  let [searchParams, setSearchParams] = useSearchParams();
+  console.log(searchParams.sort_by, "params");
+  const [sortString, setSortString] = useState(
+    `sort_by:${searchParams.get("sort_by") || "created_at"},order:${
+      searchParams.get("order") || "desc"
+    }`
+  );
 
-  useEffect(() => {
-    const sortObj = Object.fromEntries(
-      sortString.split(",").map((pair) => pair.split(":"))
-    );
-    setSortQueries(sortObj);
-  }, [sortString]);
+  useEffect(() => {}, [sortString]);
 
   function handleUpdate(event) {
-    setSortString(event.target.value);
+    const newString = event.target.value;
+    setSortString(newString);
+    const sortObj = Object.fromEntries(
+      newString.split(",").map((pair) => pair.split(":"))
+    );
+    setSortQueries(sortObj);
+    setSearchParams((params) => ({
+      ...params,
+      ...sortObj,
+    }));
   }
 
   return (
