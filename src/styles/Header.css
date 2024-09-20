@@ -19,7 +19,7 @@ header {
 .current-user {
   margin: 1rem auto;
 }
-h1 {
+.app-title {
   width: fit-content;
   margin: 1rem auto 0 auto;
 }
@@ -28,13 +28,13 @@ h1 {
   header {
     grid-template-areas: "title user" "nav user";
   }
-  h1 {
+  .app-title {
     margin: 1rem 1rem 0 1rem;
     width: fit-content;
   }
 }
 
-h1 {
+.app-title {
   grid-area: title;
   text-align: left;
 }

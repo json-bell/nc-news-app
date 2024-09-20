@@ -5,7 +5,7 @@ import "../../styles/Header.css";
 export function Header() {
   return (
     <header>
-      <h1>Newser Friendly</h1>
+      <h1 className="app-title">Newser Friendly</h1>
       <Nav />
       <CurrentUser />
     </header>
