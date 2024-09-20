@@ -35,6 +35,13 @@ export function Pagination({ setListPagination, listPagination, totalCount }) {
     ? Math.min(listPagination.limit * listPagination.p, totalCount)
     : totalCount;
 
+  const recapMessageFn = () => {
+    if (totalCount === 0) return "Haven't found articles yet";
+    if (minArticleIndex > totalCount)
+      return "With great page\ncomes great responsibility";
+    if (listPagination.p < 1) return "You should be more positive :(";
+    return `Seeing ${minArticleIndex} to ${maxArticleIndex} of ${totalCount} results`;
+  };
   return (
     <>
       <form
@@ -100,13 +107,7 @@ export function Pagination({ setListPagination, listPagination, totalCount }) {
             Next
           </button>
         </section>
-        <p className="pagination-recap">
-          {minArticleIndex <= totalCount
-            ? listPagination.p >= 1
-              ? `Seeing ${minArticleIndex} to ${maxArticleIndex} of ${totalCount} results`
-              : "You should be more positive :("
-            : "With great page comes great responsibility"}
-        </p>
+        <p className="pagination-recap">{recapMessageFn()}</p>
       </form>
     </>
   );

@@ -26,7 +26,9 @@ export function ArticleSummary({ article }) {
             {article.topic}
           </Link>
         </p>
-        <p>Votes: {article.votes}</p>
+        <p>
+          {article.votes} Votes & {article.comment_count} Comments
+        </p>
         <p>
           Written by {article.author} on {convertDateShort(article.created_at)}
         </p>

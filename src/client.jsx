@@ -55,3 +55,9 @@ export const fetchUsers = () => {
 export const deleteComment = (comment_id) => {
   return apiClient.delete(`/comments/${comment_id}`).catch(defaultCatch);
 };
+
+export const fetchTopic = (topic) => {
+  return apiClient.get(`/topics`).then(({ data }) => ({
+    topic: data.topics.find(({ slug }) => slug === topic),
+  }));
+};

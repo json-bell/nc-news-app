@@ -4,6 +4,8 @@ import { Home } from "./pages/Home";
 import { ArticlePage } from "./pages/ArticlePage";
 import { Header } from "./components/Header/Header";
 import { Login } from "./pages/Login";
+import { TopicPage } from "./pages/TopicPage";
+import { Topics } from "./pages/Topics";
 
 function App() {
   // const { setSkipNavInfo } = useContext(NavContext);
@@ -20,6 +22,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/article/:article_id" element={<ArticlePage />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/topics" element={<Topics />} />
+        <Route path="/topics/:slug" element={<TopicPage />} />
       </Routes>
     </>
   );

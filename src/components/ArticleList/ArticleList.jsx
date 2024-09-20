@@ -3,31 +3,34 @@ import { ArticleSummary } from "./ArticleSummary.jsx";
 import { fetchArticles } from "../../client.jsx";
 import "../../styles/ArticleList.css";
 
-export function ArticleList({ listPagination, setTotalCount }) {
+export function ArticleList({ listPagination, setTotalCount, topic }) {
   const [articles, setArticles] = useState([]);
   const [isArticlesLoading, setIsArticlesLoading] = useState(true);
 
   useEffect(() => {
     setIsArticlesLoading(true);
-    fetchArticles({ ...listPagination }).then(({ articles, total_count }) => {
-      setArticles(articles);
-      setTotalCount(total_count);
-      setIsArticlesLoading(false);
-    });
+    setTotalCount(0);
+    fetchArticles({ ...listPagination, topic }).then(
+      ({ articles, total_count }) => {
+        setArticles(articles);
+        setTotalCount(total_count);
+        setIsArticlesLoading(false);
+        console.log(articles);
+      }
+    );
   }, [listPagination]);
 
   if (isArticlesLoading) {
     return (
       <>
-        <h2>Articles are loading...</h2>
+        <h2 id="articles">Articles are loading...</h2>
       </>
     );
   }
 
   return (
     <>
-      <h2 id="articles">Here's the articles MODIFY</h2>
-      <ul className="article-list">
+      <ul className="article-list" id="articles">
         {articles.map((article) => (
           <ArticleSummary key={article.article_id} article={article} />
         ))}
