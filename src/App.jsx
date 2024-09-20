@@ -6,6 +6,7 @@ import { Header } from "./components/Header/Header";
 import { Login } from "./pages/Login";
 import { TopicPage } from "./pages/TopicPage";
 import { Topics } from "./pages/Topics";
+import { NotFound } from "./pages/NotFound";
 
 function App() {
   // const { setSkipNavInfo } = useContext(NavContext);
@@ -24,6 +25,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/topics" element={<Topics />} />
         <Route path="/topics/:slug" element={<TopicPage />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );
