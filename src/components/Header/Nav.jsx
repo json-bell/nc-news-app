@@ -9,16 +9,20 @@ export function Nav() {
   const { loggedInUser } = useContext(UserContext);
   const loginNavString = loggedInUser.username ? "Change account" : "Log In";
 
+  const navLinks = [
+    { link: "/", name: "Home" },
+    { link: "/topics/", name: "Topics" },
+    { link: "/login", name: loginNavString },
+  ];
   return (
     <nav>
       <SkipNav />
       <ul className="nav-list">
-        <li className="nav-item">
-          <Link to="/">Home</Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/login">{loginNavString}</Link>
-        </li>
+        {navLinks.map((linkInfo) => (
+          <li className="nav-item" key={linkInfo.name}>
+            <Link to={linkInfo.link}>{linkInfo.name}</Link>
+          </li>
+        ))}
       </ul>
       <div id="end-nav" />
     </nav>

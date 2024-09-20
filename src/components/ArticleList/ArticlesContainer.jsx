@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ArticleList } from "./ArticleList";
 import { Pagination } from "./Pagination";
 
-export function ArticlesContainer() {
+export function ArticlesContainer({ topic }) {
   const [listPagination, setListPagination] = useState({ limit: 10, p: 1 });
   const [totalCount, setTotalCount] = useState(0);
 
@@ -16,6 +16,7 @@ export function ArticlesContainer() {
       <ArticleList
         listPagination={listPagination}
         setTotalCount={setTotalCount}
+        topic={topic}
       />
     </>
   );

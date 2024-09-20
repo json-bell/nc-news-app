@@ -9,16 +9,9 @@ export function ArticleSummary({ article }) {
   }
 
   return (
-    <li
-      className="article-summary"
-      onClick={() => handleArticleClick(article.article_id)}
-      onKeyDown={({ key }) => {
-        if (key === "Enter") handleArticleClick(article.article_id);
-      }}
-      tabIndex={0}
-    >
-      <Card extraClasses={["focusable"]}>
-        <h3 className="heading">{article.title}</h3>
+    <li className="article-summary">
+      <Card link={`/article/${article.article_id}`}>
+        <h2 className="heading">{article.title}</h2>
         <img src={article.article_img_url} alt="" />
         <p>
           Topic:{" "}
@@ -26,9 +19,11 @@ export function ArticleSummary({ article }) {
             {article.topic}
           </Link>
         </p>
-        <p>Votes: {article.votes}</p>
         <p>
-          Written by {article.author} on {convertDateShort(article.created_at)}
+          {article.votes} Votes & {article.comment_count} Comments
+        </p>
+        <p>
+          By {article.author}, {convertDateShort(article.created_at)}
         </p>
       </Card>
     </li>

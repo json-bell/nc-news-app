@@ -14,7 +14,7 @@ header {
 }
 
 header {
-  grid-template-areas: "title" " user" "nav";
+  grid-template-areas: "title" "user" "nav";
 }
 .current-user {
   margin: 1rem auto;
@@ -45,6 +45,9 @@ nav {
 
 .current-user {
   grid-area: user;
+}
+
+.current-user .card-content {
   display: inline-grid;
   grid-template-areas: "picture name" "picture username";
   height: min-content;
