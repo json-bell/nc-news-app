@@ -3,21 +3,26 @@ import { ArticleSummary } from "./ArticleSummary.jsx";
 import { fetchArticles } from "../../client.jsx";
 import "../../styles/ArticleList.css";
 
-export function ArticleList({ listPagination, setTotalCount, topic }) {
+export function ArticleList({
+  listPagination,
+  setTotalCount,
+  topic,
+  sortQueries,
+}) {
   const [articles, setArticles] = useState([]);
   const [isArticlesLoading, setIsArticlesLoading] = useState(true);
 
   useEffect(() => {
     setIsArticlesLoading(true);
     setTotalCount(0);
-    fetchArticles({ ...listPagination, topic }).then(
+    fetchArticles({ ...listPagination, ...sortQueries, topic }).then(
       ({ articles, total_count }) => {
         setArticles(articles);
         setTotalCount(total_count);
         setIsArticlesLoading(false);
       }
     );
-  }, [listPagination]);
+  }, [listPagination, sortQueries]);
 
   if (isArticlesLoading) {
     return (

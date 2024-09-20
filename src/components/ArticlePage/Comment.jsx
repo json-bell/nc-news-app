@@ -27,11 +27,13 @@ export function Comment({ comment, commentIndex }) {
         </h4>
         <p className="comment-time">{convertDateLong(comment.created_at)}</p>
         <div className="comment-options">
-          <Votes
-            votes={comment.votes}
-            incrementVote={incrementVote}
-            errorLocation={"below"}
-          />
+          {isCommentDeleted ? null : (
+            <Votes
+              votes={comment.votes}
+              incrementVote={incrementVote}
+              errorLocation={"below"}
+            />
+          )}
           {comment.author === loggedInUser.username ? (
             <CommentOptions
               comment_id={comment.comment_id}

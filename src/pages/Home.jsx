@@ -11,10 +11,7 @@ export function Home() {
 
   return (
     <>
-      <h1 className="title">
-        Welcome! <br />
-        See the most recent articles
-      </h1>
+      <h2 className="title">Welcome!</h2>
       <ArticlesContainer />
     </>
   );
