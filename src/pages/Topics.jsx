@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import "../styles/Login.css";
 import { includeSkipNavs } from "../utils";
 import { NavContext } from "../contexts/NavContext";
-import { fetchTopics } from "../client";
+import { fetchArticles, fetchTopics } from "../client";
 import { Card } from "../components/Card";
 
 export function Topics() {
@@ -22,8 +22,17 @@ export function Topics() {
     });
   }, []);
 
-  const [topicCounts, setTopicCounts] = useState({});
-  useEffect(() => {}, [topics]);
+  const [articleCounts, setArticleCounts] = useState({});
+  useEffect(() => {
+    topics.forEach(({ slug }) => {
+      fetchArticles({ topic: slug }).then(({ total_count }) =>
+        setArticleCounts((currCounts) => ({
+          ...currCounts,
+          [slug]: total_count,
+        }))
+      );
+    });
+  }, [topics]);
 
   return (
     <>
@@ -34,7 +43,12 @@ export function Topics() {
         topics.map((topic) => (
           <Card key={topic.slug} link={`/topics/${topic.slug}`}>
             <h3 className="heading">{topic.slug}</h3>
-            <p>{topic.description}</p>
+            <p>"{topic.description}"</p>
+            {articleCounts[topic.slug] ? (
+              <p className="topic-article-count">
+                {articleCounts[topic.slug]} articles
+              </p>
+            ) : null}
           </Card>
         ))
       )}
