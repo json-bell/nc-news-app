@@ -6,17 +6,20 @@ export function SortBy({ sortQueries, setSortQueries }) {
     {
       name: "Date",
       col_name: "created_at",
-      //   defaultOrder: "desc",
+      desc_msg: "Newest first",
+      asc_msg: "Oldest first",
     },
     {
       name: "Votes",
       col_name: "votes",
-      //   defaultOrder: "desc",
+      desc_msg: "Most first",
+      asc_msg: "Least first",
     },
     {
       name: "Comments",
       col_name: "comment_count",
-      //   defaultOrder: "desc",
+      desc_msg: "Most first",
+      asc_msg: "Least first",
     },
   ];
   const orders = [
@@ -25,9 +28,16 @@ export function SortBy({ sortQueries, setSortQueries }) {
   ];
 
   let [searchParams, setSearchParams] = useSearchParams();
+  const sortByInput = (
+    searchParams.get("sort_by") || "created_at"
+  ).toLowerCase();
+  const orderInput = (searchParams.get("order") || "desc").toLowerCase();
+  const validQueries =
+    /^(created_at)|(votes)|(comment_count)$/.test(sortByInput) &&
+    /^(asc)|(desc)$/;
   const [sortString, setSortString] = useState(
-    `sort_by:${searchParams.get("sort_by") || "created_at"},order:${
-      searchParams.get("order") || "desc"
+    `sort_by:${validQueries ? sortByInput : "created_at"},order:${
+      validQueries ? orderInput : "desc"
     }`
   );
 
@@ -39,7 +49,6 @@ export function SortBy({ sortQueries, setSortQueries }) {
     const sortObj = Object.fromEntries(
       newString.split(",").map((pair) => pair.split(":"))
     );
-    votes;
     setSortQueries(sortObj);
     setSearchParams((params) => ({
       ...params,
@@ -58,9 +67,7 @@ export function SortBy({ sortQueries, setSortQueries }) {
                 key={field.col_name + order.ref}
                 value={"sort_by:" + field.col_name + "," + "order:" + order.ref}
               >
-                {field.name} (
-                {order.ref === "asc" ? <> &uarr; Increasing </> : <> &darr; </>}
-                )
+                {field.name} ({field[`${order.ref}_msg`]})
               </option>
             ))
           )}
