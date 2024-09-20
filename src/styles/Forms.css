@@ -1,12 +1,15 @@
 .pagination-button {
   margin: 0.7rem 1rem 0.5rem 1rem;
   padding: 0.5rem 0.7rem;
+  background-color: var(--button2);
   border: var(--temp) 1px solid;
 }
 
 .button-disabled {
   background-color: color-mix(in srgb, var(--temp) 50%, var(--temp2) 50%);
-  color: var(--temp);
+  color: rgb(187, 187, 187);
+  border: none;
+  cursor: not-allowed;
 }
 
 .pagination-page_num {

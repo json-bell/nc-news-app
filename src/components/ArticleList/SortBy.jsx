@@ -59,7 +59,7 @@ export function SortBy({ sortQueries, setSortQueries }) {
   return (
     <>
       <form>
-        <label>Sort: </label>
+        <label htmlFor="sort_by">Sort: </label>
         <select id="sort_by" value={sortString} onChange={handleUpdate}>
           {fields.map((field) =>
             orders.map((order) => (
