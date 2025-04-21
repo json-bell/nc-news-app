@@ -28,6 +28,10 @@ export function ArticleList({
     return (
       <>
         <h2 id="articles">Articles are loading...</h2>
+        <p>
+          Render spins down after periods of inactivity on the free tier, so
+          connection may take up to a minute{" "}
+        </p>
       </>
     );
   }
